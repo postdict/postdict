@@ -10,6 +10,8 @@ You'll need the following dependencies to build:
 Install dependensies with:
 
     bundle install --path vendor/bundle
+    brew install yarn
+    yarn install
 
 Use `rails s` to start the server:
 
