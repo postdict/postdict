@@ -1,0 +1,255 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import "main";
+
+.home {
+  // Local mixins
+  @mixin home-button($bg-color, $fg-color) {
+    background: $bg-color;
+    color: $fg-color;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px 15px;
+    transition: 0.7s;
+    border: 2px solid $bg-color;
+    font-size: 18px;
+
+    &:hover {
+      background: $fg-color;
+      color: $bg-color;
+      border-color: $bg-color;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  
+    &:focus {
+      outline: 4px auto darken($bg-color, 5%);
+    }
+  }
+
+  // Views
+  .top-view {
+    margin: 0;
+    overflow: hidden;
+
+    // The background gradation color in the header
+    .header-parent {
+      margin-top: 0;
+      background: linear-gradient(-135deg, #fff1a1, #3daa13);
+
+      @include pc {
+        height: 500px;
+      }
+
+      @include tablet {
+        height: 500px;
+      }
+
+      @include mobile {
+        height: 600px;
+      }
+    }
+
+    // The actual header content
+    header {
+      margin: 0 20px 15px;
+      overflow: hidden;
+
+      ul {
+        list-style: none;
+        text-align: right;
+        margin-top: 30px;
+        margin-bottom: 100px;
+      }
+
+      li {
+        display: inline-block;
+        margin: 0 15px;
+        font-size: 18px;
+
+        .signup {
+          color: #857d4a;
+          padding-bottom: 5px;
+          transition: 0.2s;
+
+          &:hover {
+            text-decoration: none;
+            color: #695c11;
+            border-bottom: 3px solid #695c11;
+          }
+        }
+      }
+    }
+
+    // The texts in the header section
+    .header-heading {
+      color: #fafafa;
+      width: 80%;
+      margin: 0 auto;
+
+      h1 {
+        font-size: 40px;
+      }
+
+      p {
+        color: #ebf7e8;
+      }
+
+      .actions {
+        margin-top: 40px;
+      }
+    }
+
+    // The next section following the header
+    .diff-section {
+      width: 80%;
+      margin: 100px auto;
+      text-align: center;
+      overflow: hidden;
+
+      h2 {
+        font-weight: normal;
+        font-size: 28px;
+        color: #3daa13;
+      }
+
+      .diff-half {
+        box-sizing: border-box;
+
+        @include pc {
+          float: left;
+          width: 640px;
+          padding: 50px 30px;
+          margin: 30px 0;
+        }
+
+        @include tablet {
+          float: left;
+          width: 50%;
+          padding: 50px 30px;
+          margin: 30px 0;
+        }
+
+        @include mobile {
+          float: none;
+          width: 100%;
+          padding: 30px;
+          margin: 15px 0;
+        }
+
+        h3 {
+          font-weight: normal;
+          font-size: 24px;
+        }
+
+        .description {
+          color: #7e7e7e;
+          font-size: 14px;
+        }
+      }
+
+      // Separator between the diff
+      .border-right {
+        @include pc {
+          border-right: 2px solid #ececec;
+        }
+
+        @include tablet {
+          border-right: 2px solid #ececec;
+        }
+
+        @include mobile {
+          border-right: none;
+        }
+      }
+    }
+
+    // The next section telling problems in existing dicts
+    // The blue background color
+    .existing-section {
+      clear: both;
+      background: #e6f7fc;
+      padding: 100px 0;
+    }
+
+    // The actual content
+    .existing-content {
+      width: 80%;
+      margin: 0 auto;
+
+      h2 {
+        font-weight: normal;
+        font-size: 28px;
+        color: #3c63ce;
+      }
+
+      .dict-code {
+        display: inline-block;
+        background: #fdfdfd;
+        font-size: 12px;
+        padding: 2px 3px;
+        font-weight: bold;
+      }
+    }
+
+    // The final section in this page
+    .about-section {
+      width: 80%;
+      margin: 100px auto;
+      text-align: center;
+
+      h2 {
+        font-weight: normal;
+        font-size: 28px;
+        color: #3daa13;
+      }
+
+      .bold-green {
+        font-weight: bold;
+        color: #3daa13;
+      }
+    }
+
+    footer {
+      background: #f0f0f0;
+
+      .footer-content {
+        width: 80%;
+        margin: 0 auto;
+        padding: 30px 0;
+
+        p {
+          color: #969696;
+          font-size: 12px;
+          text-align: center;
+        }
+      }
+    }
+
+    // Local selectors & overrides
+    p {
+      font-size: 18px;
+    }
+
+    a {
+      color: #3daa13;
+    }
+
+    .content-button {
+      @include home-button(#3c63ce, #fafafa);
+
+      @include mobile {
+        display: block;
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 50px;
+      }
+    }
+
+    .green-button {
+      @include home-button(#3daa13, #fafafa);
+    }
+  }
+}

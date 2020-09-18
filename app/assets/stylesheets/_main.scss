@@ -1,0 +1,47 @@
+// Media Query
+@mixin pc {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 760px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 760px){
+    @content;
+  } 
+}
+
+.views {
+  // Format things
+  .italic {
+    font-style: italic;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+  @mixin highlight($bg-color) {
+    padding: 0 2px;
+    color: #4d4d4d;
+    background: $bg-color;
+  }
+
+  .highlight-blue {
+    @include highlight(#c4e8ff);
+  }
+
+  .highlight-yellow {
+    @include highlight(#ebcd48);
+  }
+
+  .next-paragraph {
+    margin-top: 40px;
+  }
+}
