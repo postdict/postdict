@@ -1,3 +1,13 @@
+<% if @user.errors.full_messages.count > 0 %>
+  <div class="alert alert-alert">
+    <%= @user.errors.full_messages[0] %>
+  </div>
+<% end %>
+<% if @error_message %>
+  <div class="alert alert-alert">
+    <%= @error_message %>
+  </div>
+<% end %>
 <div class="views users">
   <div class="signup-form-view">
     <div class="form-section">
@@ -6,16 +16,6 @@
         <p>アカウントをお持ちの方は、<%= link_to "サインイン", "/signin" %>してください。</p>
       </div>
       <%= form_tag "/signup" do %>
-      <% if @user.errors.full_messages.count > 0 %>
-        <p class="alert alert-alert">
-          <%= @user.errors.full_messages[0] %>
-        </p>
-      <% end %>
-      <% if @error_message %>
-        <p class="alert alert-alert">
-          <%= @error_message %>
-        </p>
-      <% end %>
         <input type="text" class="entry-half" name="family_name" placeholder="姓" value="<%= @user.family_name %>">
         <input type="text" class="entry-half" name="first_name" placeholder="名" value="<%= @user.first_name %>">
         <input type="text" name="email" placeholder="メールアドレス" value="<%= @user.email %>">

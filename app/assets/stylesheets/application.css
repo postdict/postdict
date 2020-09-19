@@ -32,3 +32,29 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+/* Flash */
+.alert {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 6px;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.alert-notice {
+  color: #085c2e;
+  background: #cee6d8;
+  border-color: #9abba9;
+}
+
+.alert-alert {
+  color: #ac1b1b;
+  background: #ecd4d4;
+  border-color: #dfb6b6;
+}

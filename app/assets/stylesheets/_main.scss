@@ -23,7 +23,6 @@
   text-align: center;
   border-radius: 6px;
   transition: 0.7s;
-  border: 2px solid $bg-color;
   font-size: 18px;
 
   &:hover {
@@ -36,7 +35,39 @@
   }
 }
 
+input[type="text"], input[type="password"] {
+  padding: 10px 15px;
+  border: 2px solid #e7e7e7;
+  font-size: 16px;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: 4px auto darken(#3daa13, 5%);
+  }
+}
+
+// Classes used in more than two controllers
 .views {
+  // The actual header content
+  header {
+    margin: 0 20px 15px;
+    overflow: hidden;
+
+    ul {
+      list-style: none;
+      text-align: right;
+      margin-top: 30px;
+      margin-bottom: 100px;
+    }
+
+    li {
+      display: inline-block;
+      margin: 0 15px;
+      font-size: 18px;
+    }
+  }
+
   // Format things
   .italic {
     font-style: italic;

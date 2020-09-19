@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.user_id
       flash[:notice] = "サインインしました。"
-      redirect_to("/")
+      redirect_to("/search")
     else
       @error_message = "メールアドレスまたはパスワードが違います。"
       render("signin_form")
@@ -41,9 +41,15 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.user_id
       flash[:notice] = "アカウントを作成しました。"
-      redirect_to("/")
+      redirect_to("/search")
     else
       render("signup_form")
     end
+  end
+
+  def signout
+    session[:user_id] = nil
+    flash[:notice] = "サインアウトしました。"
+    redirect_to "/"
   end
 end

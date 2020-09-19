@@ -9,6 +9,7 @@
   @mixin home-button($bg-color, $fg-color) {
     @include button($bg-color, $fg-color);
     padding: 10px 15px;
+    border: 2px solid $bg-color;
 
     &:hover {
       background: $fg-color;
@@ -41,32 +42,17 @@
     }
 
     // The actual header content
+    // @override
     header {
-      margin: 0 20px 15px;
-      overflow: hidden;
+      .signup {
+        color: #857d4a;
+        padding-bottom: 5px;
+        transition: 0.2s;
 
-      ul {
-        list-style: none;
-        text-align: right;
-        margin-top: 30px;
-        margin-bottom: 100px;
-      }
-
-      li {
-        display: inline-block;
-        margin: 0 15px;
-        font-size: 18px;
-
-        .signup {
-          color: #857d4a;
-          padding-bottom: 5px;
-          transition: 0.2s;
-
-          &:hover {
-            text-decoration: none;
-            color: #695c11;
-            border-bottom: 3px solid #695c11;
-          }
+        &:hover {
+          text-decoration: none;
+          color: #695c11;
+          border-bottom: 3px solid #695c11;
         }
       }
     }

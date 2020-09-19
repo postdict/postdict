@@ -8,6 +8,7 @@
   // Local mixins
   @mixin user-button($bg-color, $fg-color) {
     @include button($bg-color, $fg-color);
+    border: 2px solid $bg-color;
     padding: 5px 10px;
 
     &:hover {
@@ -55,18 +56,6 @@
         margin-bottom: 15px;
       }
 
-      input[type="text"], input[type="password"] {
-        padding: 10px 15px;
-        border: 2px solid #e7e7e7;
-        font-size: 16px;
-        border-radius: 4px;
-        box-sizing: border-box;
-
-        &:focus {
-          outline: 4px auto darken(#3daa13, 5%);
-        }
-      }
-
       .entry-half {
         width: calc(50% - 4px);
       }
@@ -78,20 +67,4 @@
   }
 
   // Local selectors & overrides
-  // Flash
-  .alert {
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 30px;
-    font-weight: bold;
-    padding: 10px;
-  }
-
-  .alert-notice {
-    color: #085c2e;
-  }
-
-  .alert-alert {
-    color: #ac1b1b;
-  }
 }

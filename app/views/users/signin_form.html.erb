@@ -1,3 +1,8 @@
+<% if @error_message %>
+  <div class="alert alert-alert">
+    <%= @error_message %>
+  </div>
+<% end %>
 <div class="views users">
   <div class="signin-form-view">
     <div class="form-section">
@@ -5,11 +10,6 @@
         <h1>Postdictにサインイン</h1>
         <p>初めてご利用の方は、<%= link_to "アカウントを作成", "/signup" %>してください。</p>
       </div>
-      <% if @error_message %>
-        <p class="alert alert-alert">
-          <%= @error_message %>
-        </p>
-      <% end %>
       <%= form_tag "/signin" do %>
         <input type="text" name="email" placeholder="メールアドレス" value="<%= @user.email %>">
         <input type="password" name="password" placeholder="パスワード" value="<%= @user.password %>">
