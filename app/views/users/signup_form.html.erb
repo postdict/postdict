@@ -1,3 +1,4 @@
+<%= content_for(:html_title) { "Postdictのアカウントを新規作成" } %>
 <% if @user.errors.full_messages.count > 0 %>
   <div class="alert alert-alert">
     <%= @user.errors.full_messages[0] %>
