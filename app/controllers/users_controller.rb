@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :redirect_authorized, { only: [:signin_form, :signin, :signup_form, :signup] }
+  before_action :redirect_unauthorized, { only: [:index, :signout] }
+
   def index
   end
 
