@@ -7,25 +7,13 @@
 .home {
   // Local mixins
   @mixin home-button($bg-color, $fg-color) {
-    background: $bg-color;
-    color: $fg-color;
-    text-align: center;
-    border-radius: 6px;
+    @include button($bg-color, $fg-color);
     padding: 10px 15px;
-    transition: 0.7s;
-    border: 2px solid $bg-color;
-    font-size: 18px;
 
     &:hover {
       background: $fg-color;
       color: $bg-color;
       border-color: $bg-color;
-      text-decoration: none;
-      cursor: pointer;
-    }
-  
-    &:focus {
-      outline: 4px auto darken($bg-color, 5%);
     }
   }
 

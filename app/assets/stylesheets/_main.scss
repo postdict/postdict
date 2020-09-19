@@ -14,7 +14,26 @@
 @mixin mobile {
   @media (max-width: 760px){
     @content;
-  } 
+  }
+}
+
+@mixin button($bg-color, $fg-color) {
+  background: $bg-color;
+  color: $fg-color;
+  text-align: center;
+  border-radius: 6px;
+  transition: 0.7s;
+  border: 2px solid $bg-color;
+  font-size: 18px;
+
+  &:hover {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: 4px auto darken($bg-color, 5%);
+  }
 }
 
 .views {

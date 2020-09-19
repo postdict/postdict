@@ -1,0 +1,97 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import "main";
+
+.users {
+  // Local mixins
+  @mixin user-button($bg-color, $fg-color) {
+    @include button($bg-color, $fg-color);
+    padding: 5px 10px;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  // Views
+  .signin-form-view, .signup-form-view {
+    // Fit the background to the page size, see:
+    // https://nansystem.com/css-full-page-background-color/
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(-135deg, #fff1a1, #3daa13);
+
+    .form-section {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70%;
+      max-width: 350px;
+      padding: 40px 30px;
+      background: #fafafa;
+      text-align: center;
+      box-shadow: 0 0 4px #868686;
+      border-radius: 6px;
+
+      .form-heading {
+        margin-bottom: 30px;
+
+        h1 {
+          font-size: 24px;
+          font-weight: normal;
+        }
+
+        p {
+          font-size: 14px;
+        }
+      }
+
+      input {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 15px;
+      }
+
+      input[type="text"], input[type="password"] {
+        padding: 10px 15px;
+        border: 2px solid #e7e7e7;
+        font-size: 16px;
+        border-radius: 4px;
+        box-sizing: border-box;
+
+        &:focus {
+          outline: 4px auto darken(#3daa13, 5%);
+        }
+      }
+
+      .entry-half {
+        width: calc(50% - 4px);
+      }
+
+      .signin-button {
+        @include user-button(#3daa13, #fafafa);
+      }
+    }
+  }
+
+  // Local selectors & overrides
+  // Flash
+  .alert {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-weight: bold;
+    padding: 10px;
+  }
+
+  .alert-notice {
+    color: #085c2e;
+  }
+
+  .alert-alert {
+    color: #ac1b1b;
+  }
+}

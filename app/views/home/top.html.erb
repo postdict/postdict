@@ -3,15 +3,15 @@
     <div class="header-parent">
       <header>
         <ul>
-          <li><a href="#" class="signup">登録</a></li>
-          <li><a href="#" class="green-button">サインイン</a></li>
+          <li><%= link_to "登録", "/signup", { class: "signup" } %></li>
+          <li><%= link_to "サインイン", "/signin", { class: "green-button" } %></li>
         </ul>
       </header>
       <div class="header-heading">
         <h1>名詞を正しく使えるように。</h1>
         <p>Postdictは、冠詞の有無や複数形語尾（-s）に注目したオンライン辞書です。</p>
         <div class="actions">
-          <a href="#" class="content-button">使ってみる</a>
+          <%= link_to "使ってみる", "/signup", { class: "content-button" } %>
         </div>
       </div>
     </div>
@@ -68,7 +68,7 @@
         <a href="#">動詞的名詞と名詞的名詞って何？</a>
       </p>
       <p class="next-paragraph">
-        <a href="#" class="content-button">さっそく使ってみる</a>
+        <%= link_to "さっそく使ってみる", "/signup", { class: "content-button" } %>
       </p>
     </div>
 
