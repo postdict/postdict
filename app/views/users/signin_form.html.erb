@@ -6,15 +6,15 @@
 <% end %>
 <div class="views users">
   <div class="signin-form-view">
-    <div class="form-section">
-      <div class="form-heading">
+    <div class="user-section form-section">
+      <div class="user-heading form-heading">
         <h1>Postdictにサインイン</h1>
         <p>初めてご利用の方は、<%= link_to "アカウントを作成", "/signup" %>してください。</p>
       </div>
       <%= form_tag "/signin" do %>
         <input type="text" name="email" placeholder="メールアドレス" value="<%= @user.email %>">
         <input type="password" name="password" placeholder="パスワード" value="<%= @user.password %>">
-        <input type="submit" class="signin-button" value="サインイン">
+        <input type="submit" class="green-button" value="サインイン">
       <% end %>
     </div>
   </div>

@@ -11,8 +11,8 @@
 <% end %>
 <div class="views users">
   <div class="signup-form-view">
-    <div class="form-section">
-      <div class="form-heading">
+    <div class="user-section form-section">
+      <div class="user-heading form-heading">
         <h1>Postdictのアカウントを新規作成</h1>
         <p>アカウントをお持ちの方は、<%= link_to "サインイン", "/signin" %>してください。</p>
       </div>
@@ -22,7 +22,7 @@
         <input type="text" name="email" placeholder="メールアドレス" value="<%= @user.email %>">
         <input type="password" name="password" placeholder="パスワード">
         <input type="password" name="password_confirm" placeholder="パスワードを再度入力">
-        <input type="submit" class="signin-button" value="アカウントを作成">
+        <input type="submit" class="green-button" value="アカウントを作成">
       <% end %>
     </div>
   </div>

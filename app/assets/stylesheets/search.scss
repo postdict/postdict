@@ -6,27 +6,9 @@
 
 .search {
   // Local mixins
-  @mixin signout-button($bg-color, $fg-color) {
-    @include button($bg-color, $fg-color);
-    border: 2px solid $fg-color;
-    padding: 10px 15px;
-
-    &:hover {
-      background: $fg-color;
-      color: $bg-color;
-    }
-  }
 
   // Views
   .top-view {
-    // The actual header content
-    // @override
-    header {
-      .signout-button {
-        @include signout-button(#fafafa, #3daa13);
-      }
-    }
-
     .search-section {
       margin: 0 auto;
       margin-top: 150px;

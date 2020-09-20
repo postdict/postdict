@@ -1,0 +1,56 @@
+<%= content_for(:html_title) { "アカウント設定" } %>
+<% if @current_user.errors.full_messages.count > 0 %>
+  <div class="alert alert-alert">
+    <%= @current_user.errors.full_messages[0] %>
+  </div>
+<% end %>
+<% if @error_message %>
+  <div class="alert alert-alert">
+    <%= @error_message %>
+  </div>
+<% end %>
+<div class="views users">
+  <div class="show-view">
+    <div class="header-parent">
+      <header>
+        <ul>
+          <li><%= link_to "アカウント設定", "/account" %></li>
+          <li><%= link_to "サインアウト", "/signout", { class: "signout-button", method: :post } %></li>
+        </ul>
+      </header>
+    </div>
+
+    <div class="user-section profile-section">
+      <div class="user-heading profile-heading">
+        <h1>アカウント設定</h1>
+      </div>
+      <%= form_tag "/account/update_name" do %>
+        <div class="update-area">
+          <h2>お名前を変更</h2>
+          <input type="text" class="entry-half" name="family_name" value="<%= @current_user.family_name %>">
+          <input type="text" class="entry-half" name="first_name" value="<%= @current_user.first_name %>">
+          <input type="submit" class="green-button" value="お名前を更新">
+        </div>
+      <% end %>
+      <%= form_tag "/account/update_email" do %>
+        <div class="update-area">
+          <h2>メールアドレスを変更</h2>
+          <input type="text" name="email" value="<%= @current_user.email %>">
+          <input type="submit" class="green-button" value="メールアドレスを更新">
+        </div>
+      <% end %>
+      <%= form_tag "/account/update_password" do %>
+        <div class="update-area">
+          <h2>パスワードを変更</h2>
+          <h3>現在のパスワード</h3>
+          <input type="password" name="current_password">
+          <h3>新しいパスワード</h3>
+          <input type="password" name="new_password">
+          <h3>新しいパスワードを再度入力</h3>
+          <input type="password" name="password_confirm">
+          <input type="submit" class="green-button" value="パスワードを更新">
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

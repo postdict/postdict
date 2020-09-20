@@ -6,15 +6,6 @@
 
 .users {
   // Local mixins
-  @mixin user-button($bg-color, $fg-color) {
-    @include button($bg-color, $fg-color);
-    border: 2px solid $bg-color;
-    padding: 5px 10px;
-
-    &:hover {
-      opacity: 0.7;
-    }
-  }
 
   // Views
   .signin-form-view, .signup-form-view {
@@ -40,11 +31,6 @@
       .form-heading {
         margin-bottom: 30px;
 
-        h1 {
-          font-size: 24px;
-          font-weight: normal;
-        }
-
         p {
           font-size: 14px;
         }
@@ -57,14 +43,65 @@
       }
 
       .entry-half {
+        display: inline-block;
         width: calc(50% - 4px);
       }
+    }
+  }
 
-      .signin-button {
-        @include user-button(#3daa13, #fafafa);
+  .show-view {
+    .profile-section {
+      width: 30%;
+      margin: 0 100px;
+
+      .update-area {
+        margin-bottom: 40px;
+
+        h2 {
+          font-size: 18px;
+        }
+
+        h3 {
+          font-size: 16px;
+          margin-bottom: 12px;
+          font-weight: normal;
+        }
+
+        .entry-half {
+          display: inline-block;
+          width: calc(50% - 4px);
+        }
       }
     }
   }
 
   // Local selectors & overrides
+  .user-heading {
+    h1 {
+      font-size: 24px;
+      font-weight: normal;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .user-section {
+    input {
+      display: block;
+      margin-bottom: 15px;
+    }
+
+    .green-button {
+      @include button(#3daa13, #fafafa);
+      border: 2px solid #3daa13;
+      padding: 5px 10px;
+      font-size: 16px;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
 }
