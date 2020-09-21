@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   end
 
   def signin_form
-    @user = User.new
   end
 
   def signin
@@ -17,6 +16,8 @@ class UsersController < ApplicationController
       flash[:notice] = "サインインしました。"
       redirect_to("/search")
     else
+      @email = params[:email]
+      @password = params[:password]
       @error_message = "メールアドレスまたはパスワードが違います。"
       render("signin_form")
     end
