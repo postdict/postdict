@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   post 'account/update_password' => "users#update_password"
 
   get 'search' => "search#top"
+  get 'search/search_results' => "search#index"
+  get 'search/:noun' => "search#show"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

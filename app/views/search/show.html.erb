@@ -1,0 +1,128 @@
+<%= content_for(:html_title) { @noun.noun } %>
+<div class="views search">
+  <div class="result-view">
+    <div class="pre-contents-section">
+      <h1><%= @noun.noun %></h1>
+      <div class="pre-contents-left">
+        <div class="box quizzes-box">
+          <h2>プレクイズ</h2>
+          <% @prequizes.each.with_index(1) do |prequiz, i| %>
+            <div class="quiz">
+              <h3><%= "#{i}. #{prequiz.sentence_jp}" %></h3>
+              <p class="quiz-sentence"><%= prequiz.sentence_en %></p>
+              <input type="text" class="action-input" id="prequiz<%= i %>" placeholder="<%= prequiz.placeholder %> を正しい形にして入力" aria-label="<%= prequiz.placeholder %> を正しい形にして入力">
+              <button type="button" class="action-button" onclick="answerCheck('prequiz<%= i %>', 'answer<%= i %>', 'pen sales')">チェック</button>
+              <div class="answer" id="answer<%= i %>">
+                <!-- 答えが入る -->
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="pre-contents-right">
+        <div class="box word-network-box">
+          <h4>Word Network</h4>
+
+          <div class="word-network-left">
+            <h5 class="derived-heading">派生</h5>
+          </div>
+          <div class="word-network-right">
+            <p><a href="#"><span class="kind">名</span>sell</a></p>
+            <p><a href="#"><span class="kind">名</span>sale</a></p>
+          </div>
+
+          <div class="word-network-left">
+            <h5 class="similar-heading">類語</h5>
+          </div>
+          <div class="word-network-right">
+            <p><a href="#"><span class="kind">名</span>sell</a></p>
+            <p><a href="#"><span class="kind">名</span>sale</a></p>
+          </div>
+
+          <div class="word-network-left">
+            <h5 class="reverse-heading">反意語</h5>
+          </div>
+          <div class="word-network-right">
+            <p><a href="#"><span class="kind">名</span>sell</a></p>
+            <p><a href="#"><span class="kind">名</span>sale</a></p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="noun-table-section">
+      <table class="noun-table">
+        <thead>
+          <tr>
+            <th class="noun-left-head">
+              動詞的名詞<br>
+              <span class="means">「<%= @noun.vn_meaning %>」</span>
+            </th>
+            <th class="center-row"></th>
+            <th class="noun-right-head" colspan="3">
+              名詞的名詞<br>
+              <span class="means">「<%= @noun.nn_meaning %>」</span>
+            </th>
+          </tr>
+          <tr>
+            <td class="noun-type-left">[φ N]<br><span class="means"><%= @noun.vn_explanation %></td>
+            <td class="noun-type-center"></td>
+            <td class="noun-type-right">[φ N]<br><span class="means"><%= @noun.nn_none_explanation %></td>
+            <td class="noun-type-right">[a/the/one's N]<br><span class="means"><%= @noun.nn_singular_explanation %></td>
+            <td class="noun-type-right">[φ/the/one's Ns]<br><span class="means"><%= @noun.nn_plural_explanation %></td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @noun_rows.each do |noun_row| %>
+            <tr>
+              <td><%= noun_row.vn_cell %></td> <%# φ vNの列 %>
+              <td class="center-row"><%= noun_row.noun_form_name %></td>
+              <td><%= noun_row.nn_none_cell %></td> <%# φ nNの列 %>
+              <td><%= noun_row.nn_singular_cell %></td> <%# a/the/one's nNの列 %>
+              <td><%= noun_row.nn_plural_cell %></td> <%# a/the/one's nNsの列 %>
+            </tr>
+          <% end %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="post-contents-section">
+      <div class="box quizzes-box">
+        <h2>ポストクイズ</h2>
+
+        <div class="quiz">
+          <h3>1. 売り上げ減で会社は財政困難に陥った。</h3>
+          <p class="quiz-sentence">The company was embarrassed by the decline in ( sale ).</p>
+          <input type="text" class="action-input" placeholder="sale を正しい形にして入力" aria-label="sale を正しい形にして入力">
+          <button type="button" class="action-button">チェック</button>
+          <div class="answer">
+            <p><span class="answer-header">正解</span>sales</p>
+          </div>
+        </div>
+
+        <div class="quiz">
+          <h3>2. シャロンはセールで安く選んだとてもすてきな家具をもっている。</h3>
+          <p class="quiz-sentence">Sharon has some really nice furniture she picked up cheap in ( sale ).</p>
+          <input type="text" class="action-input" placeholder="sale を正しい形にして入力" aria-label="sale を正しい形にして入力">
+          <button type="button" class="action-button">チェック</button>
+          <div class="answer">
+            <p><span class="answer-header">正解</span>a [the] sale</p>
+          </div>
+        </div>
+
+        <div class="quiz">
+          <h3>3. この家は売りに出されている。</h3>
+          <p class="quiz-sentence">This house is up for ( sale ).</p>
+          <input type="text" class="action-input" placeholder="sale を正しい形にして入力" aria-label="sale を正しい形にして入力">
+          <button type="button" class="action-button">チェック</button>
+          <div class="answer">
+            <p><span class="answer-header">正解</span>sale</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -10,7 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_20_045534) do
+ActiveRecord::Schema.define(version: 2020_09_30_124855) do
+
+  create_table "noun_rows", force: :cascade do |t|
+    t.string "noun_form_name"
+    t.text "vn_cell"
+    t.text "nn_none_cell"
+    t.text "nn_singular_cell"
+    t.text "nn_plural_cell"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "noun_id"
+  end
+
+  create_table "nouns", force: :cascade do |t|
+    t.string "noun"
+    t.text "nn_meaning"
+    t.text "vn_meaning"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "vn_explanation"
+    t.text "nn_none_explanation"
+    t.text "nn_singular_explanation"
+    t.text "nn_plural_explanation"
+  end
+
+  create_table "prequizzes", force: :cascade do |t|
+    t.string "original_noun"
+    t.text "sentence_jp"
+    t.text "sentence_en"
+    t.text "placeholder"
+    t.text "answer"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "user_id"

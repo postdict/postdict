@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  noun_form_name: MyString
+  vn_cell: MyText
+  nn_none_cell: MyText
+  nn_singular_cell: MyText
+  nn_plural_cell: MyText
+
+two:
+  noun_form_name: MyString
+  vn_cell: MyText
+  nn_none_cell: MyText
+  nn_singular_cell: MyText
+  nn_plural_cell: MyText

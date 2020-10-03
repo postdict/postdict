@@ -6,6 +6,44 @@
 
 .search {
   // Local mixins
+  // A mixin for pre/post-quiz
+  @mixin quiz_box($bg-color) {
+    background: $bg-color;
+    border: 2px solid darken($bg-color, 20%);
+    margin-right: 15px;
+
+    // Display a kind of quiz; pre/post
+    h2 {
+      font-size: 18px;
+    }
+
+    .quiz {
+      margin-bottom: 36px;
+
+      // Display Japanese translation
+      h3 {
+        font-size: 16px;
+        margin-bottom: 0;
+      }
+
+      // Display English sentence
+      .quiz-sentence {
+        margin-top: 8px;
+      }
+
+      // Shown when a user clicks the "check" button
+      .answer {
+        .answer-header {
+          color: #aa1313;
+          font-weight: bold;
+
+          &::after {
+            content: "　";
+          }
+        }
+      }
+    }
+  }
 
   // Views
   .top-view {
@@ -24,25 +62,253 @@
       .search-widgets {
         margin-top: 30px;
         margin-bottom: 100px;
+      }
+    }
+  }
 
-        .search-input {
-          width: 80%;
-          max-width: 500px;
+  .result-view {
+    margin: 20px;
+
+    .box {
+      padding: 20px;
+      border-radius: 6px;
+    }
+
+    // @override
+    header {
+      // Contains the logo
+      .header-left {
+        float: left;
+        width: 150px;
+        margin-right: 10px;
+
+        img {
+          width: 100%;
         }
+      }
 
-        .search-button {
-          @include button(#3daa13, #fafafa);
-          padding: 10px 15px;
-          font-size: 16px;
-          border: 0;
+      // Contains the text input and search button
+      .header-right {
+        float: left;
+        width: calc(100% - 160px);
+        max-width: 670px;
+        box-sizing: border-box;
+      }
+    }
 
-          &:hover {
-            opacity: 0.7;
+    // Pre-quiz and word-network section
+    .pre-contents-section {
+      clear: both;
+      margin-bottom: 20px;
+      overflow: hidden;
+
+      h1 {
+        font-size: 36px;
+      }
+
+      // Pre-quiz section
+      .pre-contents-left {
+        float: left;
+        width: 70%;
+        box-sizing: border-box;
+
+        .quizzes-box {
+          @include quiz_box(#f0faf2);
+        }
+      }
+
+      // word-network section
+      .pre-contents-right {
+        float: left;
+        width: 30%;
+        box-sizing: border-box;
+
+        .word-network-box {
+          background: #fafaf0;
+          border: 2px solid #f3f3e0;
+          border-radius: 6px;
+          color: #666647;
+          overflow: hidden;
+
+          .word-network-left {
+            clear: both;
+            float: left;
+            width: 80px;
+            text-align: right;
+
+            h5 {
+              display: inline;
+            }
+
+            .derived-heading {
+              padding: 4px 8px;
+              background: #e7dd4c;
+            }
+
+            .similar-heading {
+              padding: 4px 8px;
+              background: #3daa13;
+              color: #fafafa;
+            }
+
+            .reverse-heading {
+              padding: 4px 8px;
+              background: #aa1313;
+              color: #fafafa;
+            }
+          }
+
+          .word-network-right {
+            float: left;
+            margin-bottom: 10px;
+
+            .kind {
+              background: #333333;
+              margin-left: 10px;
+              padding: 4px;
+              border-radius: 50%;
+              color: #fafafa;
+              font-size: 12px;
+              margin-right: 3px;
+            }
+
+            p {
+              margin-top: 0;
+              margin-bottom: 12px;
+            }
           }
         }
+      }
+    }
+
+    // Noun table section
+    .noun-table-section {
+      clear: both;
+      margin: 50px 0;
+
+      .noun-table {
+        width: 100%;
+        border-collapse: collapse;
+
+        tr {
+          .means {
+            font-size: 16px;
+          }
+        }
+
+        tr:nth-child(odd) {
+          background: #f5f5f5;
+        }
+
+        tr:nth-child(even) {
+          background: #fffff2;
+        }
+
+        th {
+          padding: 20px;
+          color: #fafafa;
+          font-size: 24px;
+        }
+
+        .noun-left-head {
+          background: #8da6b4;
+        }
+
+        .noun-right-head {
+          background: #be9d9d;
+        }
+
+        td {
+          padding: 20px;
+          border: 5px solid #fafafa;
+
+          ul {
+            padding-left: 16px;
+            margin: 10px 0;
+          }
+
+          h3 {
+            display: inline-block;
+            margin-top: 12px;
+            margin-bottom: 0;
+            font-weight: normal;
+            padding: 3px 5px;
+            border: 2px dashed #978b24;
+            background: #fff6a5;
+          }
+
+          .ungrammatical {
+            font-size: 14px;
+            color: #993b3b;
+          }
+        }
+
+        tbody {
+          td {
+            vertical-align: top;
+          }
+        }
+
+        @mixin noun-type($bg-color) {
+          padding: 20px;
+          padding-bottom: 30px;
+          font-weight: bold;
+          font-size: 18px;
+          text-align: center;
+          color: #fafafa;
+          border: none;
+          background: $bg-color;
+        }
+
+        .noun-type-left {
+          @include noun-type(#a1bac9);
+          border-top: 3px solid #fafafa;
+        }
+
+        .noun-type-center {
+          @include noun-type(#f0f0f0);
+        }
+
+        .noun-type-right {
+          @include noun-type(#ccaaaa);
+          border-top: 3px solid #fafafa;
+        }
+
+        .center-row {
+          font-weight: bold;
+          font-size: 20px;
+          text-align: center;
+          width: 100px;
+          background: #f0f0f0;
+        }
+      }
+    }
+
+    // Post-quiz section
+    .post-contents-section {
+      clear: both;
+      margin-bottom: 20px;
+
+      .quizzes-box {
+        @include quiz_box(#f0f5fa);
       }
     }
   }
 
   // Local selectors & overrides
+  .action-input {
+    width: 80%;
+    max-width: 500px;
+  }
+
+  .action-button {
+    @include button(#3daa13, #fafafa);
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 0;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
 }

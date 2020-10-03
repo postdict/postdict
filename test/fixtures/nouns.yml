@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  noun: MyString
+  nn_meaning: MyText
+  vn_meaning: MyText
+
+two:
+  noun: MyString
+  nn_meaning: MyText
+  vn_meaning: MyText
