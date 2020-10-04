@@ -1,14 +1,7 @@
 <%= content_for(:html_title) { "検索" } %>
 <div class="views search">
   <div class="top-view">
-    <div class="header-parent">
-      <header>
-        <ul>
-          <li><%= link_to "アカウント設定", "/account" %></li>
-          <li><%= link_to "サインアウト", "/signout", { class: "signout-button", method: :post } %></li>
-        </ul>
-      </header>
-    </div>
+    <%= render "templates/header" %>
 
     <%= form_tag "/search/search_results", method: :get do %>
       <div class="search-section">

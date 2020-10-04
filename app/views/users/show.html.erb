@@ -11,14 +11,7 @@
 <% end %>
 <div class="views users">
   <div class="show-view">
-    <div class="header-parent">
-      <header>
-        <ul>
-          <li><%= link_to "アカウント設定", "/account" %></li>
-          <li><%= link_to "サインアウト", "/signout", { class: "signout-button", method: :post } %></li>
-        </ul>
-      </header>
-    </div>
+    <%= render "templates/header" %>
 
     <div class="user-section profile-section">
       <div class="user-heading profile-heading">

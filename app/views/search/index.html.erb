@@ -1,3 +1,6 @@
-<% @nouns.each do |noun| %>
-  <%= link_to noun.noun, "#{noun.noun}" %>
-<% end %>
+<div class="views">
+  <%= render "templates/header" %>
+  <% @nouns.each do |noun| %>
+    <%= link_to noun.noun, "#{noun.noun}" %>
+  <% end %>
+</div>
