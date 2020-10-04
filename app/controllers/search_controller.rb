@@ -10,7 +10,8 @@ class SearchController < ApplicationController
       return
     end
 
-    @nouns = Noun.where(noun: params[:word])
+    @query = params[:word]
+    @nouns = Noun.where(noun: @query)
   end
 
   def show

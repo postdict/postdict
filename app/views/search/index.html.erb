@@ -1,6 +1,34 @@
-<div class="views">
+<%= content_for(:html_title) { "#{@query}の検索結果" } %>
+<div class="views search">
   <%= render "templates/header" %>
-  <% @nouns.each do |noun| %>
-    <%= link_to noun.noun, "#{noun.noun}" %>
-  <% end %>
+  <div class="index-view">
+
+    <%= form_tag "/search/search_results", method: :get do %>
+      <div class="search-section">
+        <div class="logo">
+          <%= link_to "/search" do %>
+            <img src="/logo.png" alt="Postdictのロゴ">
+          <% end %>
+        </div>
+        <div class="search-widgets">
+          <input type="text" class="action-input" name="word" placeholder="英単語かその日本語訳を入力" aria-label="英単語かその日本語訳を入力" value="<%= @query %>">
+          <input type="submit" class="action-button" value="検索">
+        </div>
+      </div>
+    <% end %>
+
+    <div class="nouns-section">
+      <% if @nouns.count > 0 %>
+        <%= "#{@nouns.count}件の検索結果" %>
+        <% @nouns.each do |noun| %>
+          <div class="noun">
+            <h2><%= link_to noun.noun, "#{noun.noun}" %></h2>
+            <p><%= "【vN】#{noun.vn_meaning}　【nN】#{noun.nn_meaning}" %>
+          </div>
+        <% end %>
+      <% else %>
+        <%= "#{@query}に一致する単語が見つかりません。検索用語を変えてみてください。" %>
+      <% end %>
+    </div>
+  </div>
 </div>

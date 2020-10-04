@@ -295,6 +295,81 @@
     }
   }
 
+  .index-view {
+    margin-left: 30px;
+    margin-right: 30px;
+
+    .search-section {
+      .logo {
+        @include pc {
+          width: 220px;
+          float: left;
+
+          img {
+            width: 100%;
+          }
+        }
+        @include tablet {
+          width: 220px;
+          float: left;
+
+          img {
+            width: 100%;
+          }
+        }
+        @include mobile {
+          width: 100%;
+          text-align: center;
+
+          img {
+            width: 50%;
+          }
+        }
+      }
+
+      .search-widgets {
+        @include pc {
+          float: left;
+          width: calc(100% - 220px);
+          // The height of the logo image so that the logo and entry are vertically centerlized
+          line-height: 64.156px;
+        }
+        @include tablet {
+          float: left;
+          width: calc(100% - 220px);
+          // The height of the logo image so that the logo and entry are vertically centerlized
+          line-height: 64.156px;
+        }
+        @include mobile {
+          float: none;
+          width: 100%;
+          margin-top: 20px;
+          margin-bottom: 50px;
+          text-align: center;
+        }
+      }
+    }
+
+    .nouns-section {
+      clear: both;
+      padding-top: 20px;
+
+      .noun {
+        margin: 10px;
+        margin-bottom: 30px;
+
+        h2 {
+          margin-bottom: 10px;
+        }
+
+        p {
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+
   // Local selectors & overrides
   .action-input {
     width: 80%;
