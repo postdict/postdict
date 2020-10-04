@@ -5,6 +5,11 @@ class SearchController < ApplicationController
   end
 
   def index
+    if params[:word].empty?
+      redirect_to "/search"
+      return
+    end
+
     @nouns = Noun.where(noun: params[:word])
   end
 
