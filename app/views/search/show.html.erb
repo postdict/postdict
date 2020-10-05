@@ -7,16 +7,20 @@
       <div class="pre-contents-left">
         <div class="box quizzes-box">
           <h2>プレクイズ</h2>
-          <% @prequizes.each.with_index(1) do |prequiz, i| %>
-            <div class="quiz">
-              <h3><%= "#{i}. #{prequiz.sentence_jp}" %></h3>
-              <p class="quiz-sentence"><%= prequiz.sentence_en %></p>
-              <input type="text" class="action-input" id="prequiz<%= i %>" placeholder="<%= prequiz.placeholder %> を正しい形にして入力" aria-label="<%= prequiz.placeholder %> を正しい形にして入力">
-              <button type="button" class="action-button" onclick="answerCheck('prequiz<%= i %>', 'answer<%= i %>', 'pen sales')">チェック</button>
-              <div class="answer" id="answer<%= i %>">
-                <!-- 答えが入る -->
+          <% if @prequizes.count > 0 %>
+            <% @prequizes.each.with_index(1) do |prequiz, i| %>
+              <div class="quiz">
+                <h3><%= "#{i}. #{prequiz.sentence_jp}" %></h3>
+                <p class="quiz-sentence"><%= prequiz.sentence_en %></p>
+                <input type="text" class="action-input" id="prequiz<%= i %>" placeholder="<%= prequiz.placeholder %> を正しい形にして入力" aria-label="<%= prequiz.placeholder %> を正しい形にして入力">
+                <button type="button" class="action-button" onclick="answerCheck('prequiz<%= i %>', 'answer<%= i %>', 'pen sales')">チェック</button>
+                <div class="answer" id="answer<%= i %>">
+                  <!-- 答えが入る -->
+                </div>
               </div>
-            </div>
+            <% end %>
+          <% else %>
+            <%= "#{@noun.noun}に関連づけられたプレクイズはありません" %>
           <% end %>
         </div>
       </div>
