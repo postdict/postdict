@@ -7,8 +7,8 @@
       <div class="pre-contents-left">
         <div class="box quizzes-box">
           <h2>プレクイズ</h2>
-          <% if @prequizes.count > 0 %>
-            <% @prequizes.each.with_index(1) do |prequiz, i| %>
+          <% if @prequizzes.count > 0 %>
+            <% @prequizzes.each.with_index(1) do |prequiz, i| %>
               <div class="quiz">
                 <h3><%= "#{i}. #{prequiz.sentence_jp}" %></h3>
                 <p class="quiz-sentence"><%= prequiz.sentence_en %></p>
@@ -96,37 +96,21 @@
     <div class="post-contents-section">
       <div class="box quizzes-box">
         <h2>ポストクイズ</h2>
-
-        <div class="quiz">
-          <h3>1. 売り上げ減で会社は財政困難に陥った。</h3>
-          <p class="quiz-sentence">The company was embarrassed by the decline in ( sale ).</p>
-          <input type="text" class="action-input" placeholder="sale を正しい形にして入力" aria-label="sale を正しい形にして入力">
-          <button type="button" class="action-button">チェック</button>
-          <div class="answer">
-            <p><span class="answer-header">正解</span>sales</p>
-          </div>
-        </div>
-
-        <div class="quiz">
-          <h3>2. シャロンはセールで安く選んだとてもすてきな家具をもっている。</h3>
-          <p class="quiz-sentence">Sharon has some really nice furniture she picked up cheap in ( sale ).</p>
-          <input type="text" class="action-input" placeholder="sale を正しい形にして入力" aria-label="sale を正しい形にして入力">
-          <button type="button" class="action-button">チェック</button>
-          <div class="answer">
-            <p><span class="answer-header">正解</span>a [the] sale</p>
-          </div>
-        </div>
-
-        <div class="quiz">
-          <h3>3. この家は売りに出されている。</h3>
-          <p class="quiz-sentence">This house is up for ( sale ).</p>
-          <input type="text" class="action-input" placeholder="sale を正しい形にして入力" aria-label="sale を正しい形にして入力">
-          <button type="button" class="action-button">チェック</button>
-          <div class="answer">
-            <p><span class="answer-header">正解</span>sale</p>
-          </div>
-        </div>
-
+        <% if @postquizzes.count > 0 %>
+          <% @postquizzes.each.with_index(1) do |postquiz, i| %>
+            <div class="quiz">
+              <h3><%= "#{i}. #{postquiz.sentence_jp}" %></h3>
+              <p class="quiz-sentence"><%= postquiz.sentence_en %></p>
+              <input type="text" class="action-input" id="postquiz<%= i %>" placeholder="<%= postquiz.placeholder %> を正しい形にして入力" aria-label="<%= postquiz.placeholder %> を正しい形にして入力">
+              <button type="button" class="action-button" onclick="answerCheck('postquiz<%= i %>', 'answer<%= i %>', 'pen sales')">チェック</button>
+              <div class="answer" id="answer<%= i %>">
+                <!-- 答えが入る -->
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <%= "#{@noun.noun}に関連づけられたポストクイズはありません" %>
+        <% end %>
       </div>
     </div>
   </div>

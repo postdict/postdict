@@ -16,7 +16,8 @@ class SearchController < ApplicationController
 
   def show
     @noun = Noun.find_by(noun: params[:noun])
-    @prequizes = Prequiz.where(original_noun: params[:noun])
+    @prequizzes = Quiz.where(original_noun: params[:noun], kind: "pre")
+    @postquizzes = Quiz.where(original_noun: params[:noun], kind: "post")
 
     noun_form_names = [
       "__ V",

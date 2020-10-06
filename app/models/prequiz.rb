@@ -1,2 +1,0 @@
-class Prequiz < ApplicationRecord
-end
