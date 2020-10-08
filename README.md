@@ -9,7 +9,7 @@ Install dependencies needed during building:
 $ brew install node yarn
 ```
 
-### Install Dependencies on Linux
+### Install Dependencies on Ubuntu
 Install dependencies needed during building:
 
 ```bash
@@ -24,7 +24,8 @@ $ sudo apt update && sudo apt install -y yarn
 Install dependencies listed in `Gemfile`:
 
 ```bash
-$ bundle install --path vendor/bundle
+$ bundle config set --local without 'production'
+$ bundle install
 ```
 
 Install dependencies listed in `package.json`:
@@ -36,13 +37,13 @@ $ yarn install
 Perform a migration:
 
 ```bash
-$ bundle exec rails db:migrate
+$ rails db:migrate
 ```
 
 Use `rails s` to start the server:
 
 ```bash
-$ bundle exec rails s
+$ rails s
 ```
 
 Open your browser and visit `localhost:3000` to see the top page.
