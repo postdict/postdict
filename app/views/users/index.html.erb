@@ -1,2 +1,40 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<%= content_for(:html_title) { "ユーザー一覧" } %>
+<% if @current_user.errors.full_messages.count > 0 %>
+  <div class="alert alert-alert">
+    <%= @current_user.errors.full_messages[0] %>
+  </div>
+<% end %>
+<% if @error_message %>
+  <div class="alert alert-alert">
+    <%= @error_message %>
+  </div>
+<% end %>
+<div class="views users">
+  <div class="index-view">
+    <%= render "templates/header" %>
+
+    <div class="setting-section list-section">
+      <div class="users-heading">
+        <h1>ユーザー一覧</h1>
+      </div>
+      <% @users.each do |user| %>
+        <div class="user">
+          <h2>
+            <%= "#{user.family_name} #{user.first_name}" %>
+            <span class="kind <%= user.kind %>">
+              <%= get_user_kind_display_name user.kind %>
+            </span>
+          </h2>
+          <p><%= "ユーザーID: #{user.user_id}" %></p>
+          <% if @current_user != user %>
+            <div class="actions">
+              <%= link_to "#{user.user_id}/destroy" do %>
+                <%= icon "fas", "trash-alt", title: "ユーザーを削除…" %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

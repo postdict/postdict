@@ -16,6 +16,17 @@ class ApplicationController < ActionController::Base
     if @current_user == nil
       flash[:alert] = "サインインが必要です。"
       redirect_to "/signin"
+      return false
+    end
+  end
+
+  def redirect_nonadmin
+    if !redirect_unauthorized
+      return
+    end
+
+    if @current_user.kind != "admin"
+      redirect_to "/"
     end
   end
 end

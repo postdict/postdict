@@ -13,15 +13,15 @@
   <div class="show-view">
     <%= render "templates/header" %>
 
-    <div class="user-section profile-section">
-      <div class="user-heading profile-heading">
+    <div class="setting-section profile-section">
+      <div class="users-heading">
         <h1>アカウント設定</h1>
       </div>
       <%= form_tag "/account/update_name" do %>
         <div class="update-area">
           <h2>お名前を変更</h2>
-          <input type="text" class="entry-half" name="family_name" value="<%= @current_user.family_name %>">
-          <input type="text" class="entry-half" name="first_name" value="<%= @current_user.first_name %>">
+          <input type="text" name="family_name" value="<%= @current_user.family_name %>">
+          <input type="text" name="first_name" value="<%= @current_user.first_name %>">
           <input type="submit" class="green-button" value="お名前を更新">
         </div>
       <% end %>

@@ -1,0 +1,38 @@
+<%= content_for(:html_title) { "ユーザー#{@user.family_name} #{@user.first_name}を削除" } %>
+<% if @current_user.errors.full_messages.count > 0 %>
+  <div class="alert alert-alert">
+    <%= @current_user.errors.full_messages[0] %>
+  </div>
+<% end %>
+<% if @error_message %>
+  <div class="alert alert-alert">
+    <%= @error_message %>
+  </div>
+<% end %>
+<div class="views users">
+  <div class="destroy-form-view">
+    <%= render "templates/header" %>
+
+    <div class="setting-section">
+      <div class="users-heading">
+        <h1><%= "ユーザー#{@user.family_name} #{@user.first_name}を削除" %></h1>
+        <p>
+          このユーザーに関するすべての情報がデーターベースから削除されます。ユーザーはログインできなくなり、再度アプリを利用するには新規登録が必要になります。
+        </p>
+        <p>
+          ユーザーに迷惑・違法行為などが認められるなどの特殊な理由なしにユーザーを削除することは、管理者権限の濫用と見なされます。
+        </p>
+      </div>
+      <div class="actions">
+        <%= form_tag "/adminmng/users/#{@user.user_id}/destroy" do %>
+          <p>
+            <input type="checkbox" name="confirm_checkbox" onclick="toggleButtonSensitivity('confirm_checkbox', 'remove_button')">このユーザーに問題があるため削除を実行します
+          </p>
+          <p>
+            <input type="submit" name="remove_button" class="red-button" value="ユーザーを削除" disabled="disabled">
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

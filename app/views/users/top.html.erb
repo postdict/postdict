@@ -1,0 +1,25 @@
+<%= content_for(:html_title) { "管理" } %>
+<div class="views users">
+  <div class="top-view">
+    <%= render "templates/header" %>
+
+    <div class="setting-section">
+      <div class="users-heading">
+        <h1>管理</h1>
+      </div>
+
+      <div class="setting-item">
+        <h2>ユーザー管理</h2>
+        <div class="setting-plug">
+          <%= icon "fas", "users" %>
+          <h3><%= link_to "ユーザー一覧", "users/index" %></h3>
+        </div>
+        <div class="setting-plug">
+          <%= icon "fas", "user-plus" %>
+          <h3><%= link_to "管理者を追加", "users/create" %></h3>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

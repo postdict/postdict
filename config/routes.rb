@@ -15,6 +15,13 @@ Rails.application.routes.draw do
   get 'account/update_password' => "users#show"
   post 'account/update_password' => "users#update_password"
 
+  get 'adminmng/top' => "users#top"
+  get 'adminmng/users/index' => "users#index"
+  get 'adminmng/users/create' => "users#create_form"
+  post 'adminmng/users/create' => "users#create"
+  get 'adminmng/users/:user_id/destroy' => "users#destroy_form"
+  post 'adminmng/users/:user_id/destroy' => "users#destroy"
+
   get 'search' => "search#top"
   get 'search/search_results' => "search#index"
   get 'search/:noun' => "search#show"

@@ -39,7 +39,6 @@
       input {
         display: inline-block;
         width: 100%;
-        margin-bottom: 15px;
       }
 
       .entry-half {
@@ -50,33 +49,103 @@
   }
 
   .show-view {
-    .profile-section {
-      width: 30%;
-      margin: 0 100px;
+  }
 
-      .update-area {
-        margin-bottom: 40px;
+  .top-view {
+  }
 
-        h2 {
-          font-size: 18px;
+  .index-view {
+    .list-section {
+      .user {
+        border-bottom: 2px solid #f0f0f0;
+        padding: 15px 30px;
+
+        p {
+          color: #656565;
         }
 
-        h3 {
-          font-size: 16px;
-          margin-bottom: 12px;
-          font-weight: normal;
-        }
-
-        .entry-half {
+        .kind {
           display: inline-block;
-          width: calc(50% - 4px);
+          padding: 4px 8px;
+          border-radius: 6px;
+          font-size: 16px;
+          margin-left: 10px;
+        }
+
+        .admin {
+          background: #992121;
+          color: #fafafa;
+        }
+
+        .standard {
+          background: #e5f2f5;
+          color: #535353;
+        }
+
+        .actions {
+          margin-top: 30px;
+
+          .fa-trash-alt {
+            color: #656565;
+            transition: 0.3s;
+
+            &:hover {
+              opacity: 0.7;
+            }
+          }
         }
       }
     }
   }
 
+  .destroy-form-view {
+  }
+
   // Local selectors & overrides
-  .user-heading {
+  .setting-section {
+    margin: 0 100px;
+
+    input[type="text"], input[type="password"] {
+      width: 300px;
+    }
+
+    .setting-item {
+      margin-bottom: 30px;
+
+      h2 {
+        font-size: 18px;
+      }
+
+      h3 {
+        font-size: 16px;
+        margin-top: 16px;
+        font-weight: normal;
+      }
+
+      .setting-plug {
+        float: left;
+        margin-right: 10px;
+        padding: 10px;
+        text-align: center;
+        transition: 0.3s;
+
+        &:hover {
+          background: #e2e2e2;
+          border-radius: 6px;
+        }
+
+        .fas {
+          font-size: 48px;
+        }
+      }
+    }
+
+    .actions {
+      margin-top: 30px;
+    }
+  }
+
+  .users-heading {
     h1 {
       font-size: 24px;
       font-weight: normal;
@@ -87,21 +156,52 @@
     }
   }
 
-  .user-section {
-    input {
-      display: block;
-      margin-bottom: 15px;
+  .update-area {
+    margin-bottom: 40px;
+
+    h2 {
+      font-size: 18px;
     }
 
-    .green-button {
-      @include button(#3daa13, #fafafa);
-      border: 2px solid #3daa13;
-      padding: 5px 10px;
+    h3 {
       font-size: 16px;
+      margin-bottom: 12px;
+      font-weight: normal;
+    }
 
-      &:hover {
-        opacity: 0.7;
-      }
+    input {
+      display: block;
+    }
+  }
+
+  input {
+    margin-bottom: 15px;
+  }
+
+  .green-button {
+    @include button(#3daa13, #fafafa);
+    border: 2px solid #3daa13;
+    padding: 5px 10px;
+    font-size: 16px;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  .red-button {
+    @include button(#aa1313, #fafafa);
+    border: 2px solid #aa1313;
+    padding: 5px 10px;
+    font-size: 16px;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &:disabled {
+      opacity: 0.2;
+      cursor: default;
     }
   }
 }

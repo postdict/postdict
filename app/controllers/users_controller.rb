@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
   before_action :redirect_authorized, { only: [:signin_form, :signin, :signup_form, :signup] }
-  before_action :redirect_unauthorized, { only: [:index, :signout, :show, :update_name, :update_email, :update_password] }
-
-  def index
-  end
+  before_action :redirect_unauthorized, { only: [:signout, :show, :update_name, :update_email, :update_password] }
+  before_action :redirect_nonadmin, { only: [:top, :index, :create_form, :create, :destroy_form, :destroy] }
 
   def signin_form
   end
@@ -33,7 +31,8 @@ class UsersController < ApplicationController
       family_name: params[:family_name],
       first_name: params[:first_name],
       email: params[:email],
-      password: params[:password]
+      password: params[:password],
+      kind: "standard"
     )
 
     if params[:password] != params[:password_confirm]
@@ -96,6 +95,61 @@ class UsersController < ApplicationController
     end
   end
 
+  # Only for Admins
+
+  def top
+  end
+
+  def index
+    @users = User.all
+  end
+
+  def create_form
+    @user = User.new
+  end
+
+  def create
+    @user = User.new(
+      user_id: User.generate_user_id,
+      family_name: params[:family_name],
+      first_name: params[:first_name],
+      email: params[:email],
+      password: params[:password],
+      kind: "admin"
+    )
+
+    if params[:password] != params[:password_confirm]
+      @error_message = "パスワードが一致しません。もう一度入力してください。"
+      render "create_form"
+      return
+    end
+
+    if @user.save
+      flash[:notice] = "管理者#{@user.family_name} #{@user.first_name}を追加しました。"
+      redirect_to "/adminmng/users/index"
+    else
+      render "create_form"
+    end
+  end
+
+  def destroy_form
+    @user = User.find_by(user_id: params[:user_id])
+    if check_is_current_user(@user)
+      return
+    end
+  end
+
+  def destroy
+    @user = User.find_by(user_id: params[:user_id])
+    if check_is_current_user(@user)
+      return
+    end
+
+    flash[:notice] = "ユーザー#{@user.family_name} #{@user.first_name}を削除しました。"
+    @user.destroy
+    redirect_to "/adminmng/users/index"
+  end
+
   private
 
   def update_user_info_notify
@@ -104,6 +158,14 @@ class UsersController < ApplicationController
       redirect_to "/account"
     else
       render "show"
+    end
+  end
+
+  def check_is_current_user(user)
+    if user.user_id == @current_user.user_id
+      flash[:alert] = "自分自身の削除はできません。"
+      redirect_to "/adminmng/users/index"
+      return true
     end
   end
 end
