@@ -33,13 +33,14 @@
 
       // Shown when a user clicks the "check" button
       .answer {
-        .answer-header {
+        .answer-correct {
+          color: #3daa13;
+          font-weight: bold;
+        }
+
+        .answer-wrong {
           color: #aa1313;
           font-weight: bold;
-
-          &::after {
-            content: "　";
-          }
         }
       }
     }
@@ -384,6 +385,11 @@
 
     &:hover {
       opacity: 0.7;
+    }
+
+    &:disabled {
+      opacity: 0.2;
+      cursor: default;
     }
   }
 }

@@ -12,10 +12,10 @@
               <div class="quiz">
                 <h3><%= "#{i}. #{prequiz.sentence_jp}" %></h3>
                 <p class="quiz-sentence"><%= prequiz.sentence_en %></p>
-                <input type="text" class="action-input" id="prequiz<%= i %>" placeholder="<%= prequiz.placeholder %> を正しい形にして入力" aria-label="<%= prequiz.placeholder %> を正しい形にして入力">
-                <button type="button" class="action-button" onclick="answerCheck('prequiz<%= i %>', 'answer<%= i %>', 'pen sales')">チェック</button>
-                <div class="answer" id="answer<%= i %>">
-                  <!-- 答えが入る -->
+                <input type="text" class="action-input" id="prequiz<%= i %>" placeholder="<%= prequiz.placeholder %>を正しい形にして入力" aria-label="<%= prequiz.placeholder %> を正しい形にして入力" onkeydown="onKeyPressEvent(event, 'prequiz<%= i %>', 'prequiz-answer<%= i %>', 'prequiz<%= i %>-action-button', '<%= prequiz.answer %>')">
+                <button type="button" class="action-button" id="prequiz<%= i %>-action-button" onclick="answerCheck('prequiz<%= i %>', 'prequiz-answer<%= i %>', 'prequiz<%= i %>-action-button', '<%= prequiz.answer %>')">チェック</button>
+                <div class="answer" id="prequiz-answer<%= i %>">
+                  <!-- 正誤と答えが表示される -->
                 </div>
               </div>
             <% end %>
@@ -101,10 +101,10 @@
             <div class="quiz">
               <h3><%= "#{i}. #{postquiz.sentence_jp}" %></h3>
               <p class="quiz-sentence"><%= postquiz.sentence_en %></p>
-              <input type="text" class="action-input" id="postquiz<%= i %>" placeholder="<%= postquiz.placeholder %> を正しい形にして入力" aria-label="<%= postquiz.placeholder %> を正しい形にして入力">
-              <button type="button" class="action-button" onclick="answerCheck('postquiz<%= i %>', 'answer<%= i %>', 'pen sales')">チェック</button>
-              <div class="answer" id="answer<%= i %>">
-                <!-- 答えが入る -->
+              <input type="text" class="action-input" id="postquiz<%= i %>" placeholder="<%= postquiz.placeholder %>を正しい形にして入力" aria-label="<%= postquiz.placeholder %> を正しい形にして入力" onkeydown="onKeyPressEvent(event, 'postquiz<%= i %>', 'postquiz-answer<%= i %>', 'postquiz<%= i %>-action-button', '<%= postquiz.answer %>')">
+              <button type="button" class="action-button" id="postquiz<%= i %>-action-button" onclick="answerCheck('postquiz<%= i %>', 'postquiz-answer<%= i %>', 'postquiz<%= i %>-action-button', '<%= postquiz.answer %>')">チェック</button>
+              <div class="answer" id="postquiz-answer<%= i %>">
+                <!-- 正誤と答えが表示される -->
               </div>
             </div>
           <% end %>
