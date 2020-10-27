@@ -28,8 +28,13 @@
           <p><%= "ユーザーID: #{user.user_id}" %></p>
           <% if @current_user != user %>
             <div class="actions">
+              <% if user.kind != "admin" %>
+                <%= link_to "#{user.user_id}/grant" do %>
+                  <%= icon "fas", "user-plus", class: "fa-mono", title: "管理者権限を与える…" %>
+                <% end %>
+              <% end %>
               <%= link_to "#{user.user_id}/destroy" do %>
-                <%= icon "fas", "trash-alt", title: "ユーザーを削除…" %>
+                <%= icon "fas", "trash-alt", class: "fa-mono", title: "ユーザーを削除…" %>
               <% end %>
             </div>
           <% end %>

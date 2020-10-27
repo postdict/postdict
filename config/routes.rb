@@ -17,8 +17,8 @@ Rails.application.routes.draw do
 
   get 'adminmng/top' => "users#top"
   get 'adminmng/users/index' => "users#index"
-  get 'adminmng/users/create' => "users#create_form"
-  post 'adminmng/users/create' => "users#create"
+  get 'adminmng/users/:user_id/grant' => "users#grant_form"
+  post 'adminmng/users/:user_id/grant' => "users#grant"
   get 'adminmng/users/:user_id/destroy' => "users#destroy_form"
   post 'adminmng/users/:user_id/destroy' => "users#destroy"
 

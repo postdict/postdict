@@ -1,0 +1,35 @@
+<%= content_for(:html_title) { "#{@user.family_name} #{@user.first_name}に管理者権限を与える" } %>
+<% if @user.errors.full_messages.count > 0 %>
+  <div class="alert alert-alert">
+    <%= @user.errors.full_messages[0] %>
+  </div>
+<% end %>
+<% if @error_message %>
+  <div class="alert alert-alert">
+    <%= @error_message %>
+  </div>
+<% end %>
+<div class="views users">
+  <div class="grant-form-view">
+    <%= render "templates/header" %>
+
+    <div class="setting-section">
+      <div class="users-heading">
+        <h1><%= "#{@user.family_name} #{@user.first_name}に管理者権限を与える" %></h1>
+        <p>
+          管理者は、全ユーザーの名前とIDの確認、管理者の追加、辞書の編集が可能です。
+        </p>
+      </div>
+      <div class="actions">
+        <%= form_tag "/adminmng/users/#{@user.user_id}/grant" do %>
+        <p>
+          <input type="checkbox" name="confirm_checkbox" onclick="toggleButtonSensitivity('confirm_checkbox', 'grant_button')"><%= "このユーザー#{@user.family_name} #{@user.first_name}に管理者権限を与える" %>
+        </p>
+        <p>
+          <input type="submit" name="grant_button" class="red-button" value="管理者権限を与える" disabled="disabled">
+        </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

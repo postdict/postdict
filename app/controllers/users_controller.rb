@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :redirect_authorized, { only: [:signin_form, :signin, :signup_form, :signup] }
   before_action :redirect_unauthorized, { only: [:signout, :show, :update_name, :update_email, :update_password] }
-  before_action :redirect_nonadmin, { only: [:top, :index, :create_form, :create, :destroy_form, :destroy] }
+  before_action :redirect_nonadmin, { only: [:top, :index, :grant_form, :grant, :destroy_form, :destroy] }
 
   def signin_form
   end
@@ -104,31 +104,35 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def create_form
-    @user = User.new
-  end
-
-  def create
-    @user = User.new(
-      user_id: User.generate_user_id,
-      family_name: params[:family_name],
-      first_name: params[:first_name],
-      email: params[:email],
-      password: params[:password],
-      kind: "admin"
+  def grant_form
+    @user = User.find_by(
+      user_id: params[:user_id]
     )
 
-    if params[:password] != params[:password_confirm]
-      @error_message = "パスワードが一致しません。もう一度入力してください。"
-      render "create_form"
+    if @user.nil?
+      flash[:alert] = "指定したユーザーが見つかりません。"
+      redirect_to "/adminmng/users/index"
       return
     end
 
+    if @user.kind == "admin"
+      flash[:alert] = "指定したユーザーはすでに管理者です。"
+      redirect_to "/adminmng/users/index"
+    end
+  end
+
+  def grant
+    @user = User.find_by(
+      user_id: params[:user_id]
+    )
+
+    @user.kind = "admin"
+
     if @user.save
-      flash[:notice] = "管理者#{@user.family_name} #{@user.first_name}を追加しました。"
+      flash[:notice] = "#{@user.family_name} #{@user.first_name}に管理者権限を与えました。"
       redirect_to "/adminmng/users/index"
     else
-      render "create_form"
+      render "grant_form"
     end
   end
 
