@@ -14,7 +14,7 @@
       <%= form_tag "/signin" do %>
         <input type="text" name="email" placeholder="メールアドレス" value="<%= @email %>">
         <input type="password" name="password" placeholder="パスワード" value="<%= @password %>">
-        <input type="submit" class="green-button" value="サインイン">
+        <button type="submit" class="green-button">サインイン</button>
       <% end %>
     </div>
   </div>

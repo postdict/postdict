@@ -22,14 +22,14 @@
           <h2>お名前を変更</h2>
           <input type="text" name="family_name" value="<%= @current_user.family_name %>">
           <input type="text" name="first_name" value="<%= @current_user.first_name %>">
-          <input type="submit" class="green-button" value="お名前を更新">
+          <button type="submit" class="green-button">お名前を更新</button>
         </div>
       <% end %>
       <%= form_tag "/account/update_email" do %>
         <div class="update-area">
           <h2>メールアドレスを変更</h2>
           <input type="text" name="email" value="<%= @current_user.email %>">
-          <input type="submit" class="green-button" value="メールアドレスを更新">
+          <button type="submit" class="green-button">メールアドレスを更新</button>
         </div>
       <% end %>
       <%= form_tag "/account/update_password" do %>
@@ -41,7 +41,7 @@
           <input type="password" name="new_password">
           <h3>新しいパスワードを再度入力</h3>
           <input type="password" name="password_confirm">
-          <input type="submit" class="green-button" value="パスワードを更新">
+          <button type="submit" class="green-button">パスワードを更新</button>
         </div>
       <% end %>
     </div>
