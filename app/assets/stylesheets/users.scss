@@ -103,7 +103,15 @@
 
   // Local selectors & overrides
   .setting-section {
-    margin: 0 100px;
+    @include pc {
+      margin: 0 100px;
+    }
+    @include tablet {
+      margin: 0 50px;
+    }
+    @include mobile {
+      margin: 0 30px;
+    }
 
     input[type="text"], input[type="password"] {
       width: 300px;
