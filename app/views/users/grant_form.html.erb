@@ -23,7 +23,8 @@
       <div class="actions">
         <%= form_tag "/adminmng/users/#{@user.user_id}/grant" do %>
         <p>
-          <input type="checkbox" name="confirm_checkbox" onclick="toggleButtonSensitivity('confirm_checkbox', 'grant_button')"><%= "このユーザー#{@user.family_name} #{@user.first_name}に管理者権限を与える" %>
+          <input type="checkbox" id="confirm-checkbox" name="confirm_checkbox" onclick="toggleButtonSensitivity('confirm_checkbox', 'grant_button')">
+          <label for="confirm-checkbox"><%= "このユーザー#{@user.family_name} #{@user.first_name}に管理者権限を与える" %></label>
         </p>
         <p>
           <button type="submit" name="grant_button" class="red-button" disabled="disabled">管理者権限を与える</button>

@@ -26,7 +26,8 @@
       <div class="actions">
         <%= form_tag "/adminmng/users/#{@user.user_id}/destroy" do %>
           <p>
-            <input type="checkbox" name="confirm_checkbox" onclick="toggleButtonSensitivity('confirm_checkbox', 'remove_button')">このユーザーに問題があるため削除を実行します
+            <input type="checkbox" id="confirm-checkbox" name="confirm_checkbox" onclick="toggleButtonSensitivity('confirm_checkbox', 'remove_button')">
+            <label for="confirm-checkbox">このユーザーに問題があるため削除を実行します</label>
           </p>
           <p>
             <button type="submit" name="remove_button" class="red-button" disabled="disabled">ユーザーを削除</button>
