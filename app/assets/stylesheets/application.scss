@@ -62,3 +62,70 @@ a {
   background: #ecd4d4;
   border-color: #dfb6b6;
 }
+
+/* Pull-down menu */
+.menu {
+  text-align: right;
+  position: relative;
+  margin-top: 10px;
+  margin-right: 20px;
+
+  label {
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  #menu-checkbox {
+    display: none;
+    text-align: right;
+
+    &:checked ~ ul {
+      display: block;
+      position: absolute;
+      top: 24px;
+      right: 0;
+      padding: 6px 0;
+      text-align: left;
+      background: #ffffff;
+      border-radius: 4px;
+      box-shadow: 0px 0px 4px #8a8a8a;
+    }
+  }
+
+  ul {
+    display: none;
+  }
+
+  li {
+    display: block;
+    font-size: 16px;
+    padding: 0;
+
+    a {
+      display: block;
+      padding: 5px 15px;
+
+      &:hover {
+        text-decoration: none;
+        background: #f0f0f0;
+      }
+    }
+  }
+
+  .username {
+    font-weight: bold;
+    padding: 5px 15px;
+  }
+
+  .small-font {
+    font-size: 14px;
+  }
+
+  .separator {
+    border: 1px solid #f0f0f0;
+  }
+
+  .signout-red {
+    color: #ac1b1b;
+  }
+}
