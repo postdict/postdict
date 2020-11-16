@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  validates :family_name, { presence: true }
-  validates :first_name, { presence: true }
+  validates :name, { presence: true }
   validates :email, { presence: true, uniqueness: true }
   has_secure_password
 

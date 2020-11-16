@@ -28,8 +28,7 @@ class UsersController < ApplicationController
   def signup
     @user = User.new(
       user_id: User.generate_user_id,
-      family_name: params[:family_name],
-      first_name: params[:first_name],
+      name: params[:name],
       email: params[:email],
       password: params[:password],
       kind: "standard"
@@ -60,8 +59,7 @@ class UsersController < ApplicationController
   end
 
   def update_name
-    @current_user.family_name = params[:family_name]
-    @current_user.first_name = params[:first_name]
+    @current_user.name = params[:name]
     update_user_info_notify
   end
 
@@ -129,7 +127,7 @@ class UsersController < ApplicationController
     @user.kind = "admin"
 
     if @user.save
-      flash[:notice] = "#{@user.family_name} #{@user.first_name}に管理者権限を与えました。"
+      flash[:notice] = "#{@user.name}に管理者権限を与えました。"
       redirect_to "/adminmng/users/index"
     else
       render "grant_form"
@@ -149,7 +147,7 @@ class UsersController < ApplicationController
       return
     end
 
-    flash[:notice] = "ユーザー#{@user.family_name} #{@user.first_name}を削除しました。"
+    flash[:notice] = "ユーザー#{@user.name}を削除しました。"
     @user.destroy
     redirect_to "/adminmng/users/index"
   end

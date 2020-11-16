@@ -2,7 +2,7 @@
   <input type="checkbox" id="menu-checkbox">
   <label for="menu-checkbox"><%= icon "fas", "user" %></label>
   <ul>
-    <li class="username"><%= "#{@current_user.family_name} #{@current_user.first_name}" %></li>
+    <li class="username"><%= "#{@current_user.name}" %></li>
     <li class="small-font"><%= link_to "アカウント設定", "/account" %></li>
     <hr class="separator">
     <li><%= link_to "検索", "/search" %></li>

@@ -1,4 +1,4 @@
-<%= content_for(:html_title) { "ユーザー#{@user.family_name} #{@user.first_name}を削除" } %>
+<%= content_for(:html_title) { "ユーザー#{@user.name}を削除" } %>
 <% if @current_user.errors.full_messages.count > 0 %>
   <div class="alert alert-alert">
     <%= @current_user.errors.full_messages[0] %>
@@ -15,7 +15,7 @@
 
     <div class="setting-section">
       <div class="users-heading">
-        <h1><%= "ユーザー#{@user.family_name} #{@user.first_name}を削除" %></h1>
+        <h1><%= "ユーザー#{@user.name}を削除" %></h1>
         <p>
           このユーザーに関するすべての情報がデーターベースから削除されます。ユーザーはログインできなくなり、再度アプリを利用するには新規登録が必要になります。
         </p>

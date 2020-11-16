@@ -20,8 +20,7 @@
       <%= form_tag "/account/update_name" do %>
         <div class="update-area">
           <h2>お名前を変更</h2>
-          <input type="text" name="family_name" value="<%= @current_user.family_name %>">
-          <input type="text" name="first_name" value="<%= @current_user.first_name %>">
+          <input type="text" name="name" value="<%= @current_user.name %>">
           <button type="submit" class="green-button">お名前を更新</button>
         </div>
       <% end %>

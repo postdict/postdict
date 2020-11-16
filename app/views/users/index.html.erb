@@ -20,7 +20,7 @@
       <% @users.each do |user| %>
         <div class="user">
           <h2>
-            <%= "#{user.family_name} #{user.first_name}" %>
+            <%= user.name %>
             <span class="kind <%= user.kind %>">
               <%= get_user_kind_display_name user.kind %>
             </span>

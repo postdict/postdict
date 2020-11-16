@@ -61,8 +61,7 @@ ja:
         kind: "クイズの種類"
       user:
         user_id: "ユーザーID"
-        first_name: "名前"
-        family_name: "姓"
+        name: "名前"
         email: "メールアドレス"
         password: "パスワード"
         kind: "ユーザーの種類"

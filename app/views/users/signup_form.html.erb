@@ -17,8 +17,7 @@
         <p>アカウントをお持ちの方は、<%= link_to "サインイン", "/signin" %>してください。</p>
       </div>
       <%= form_tag "/signup" do %>
-        <input type="text" class="entry-half" name="family_name" placeholder="姓" value="<%= @user.family_name %>">
-        <input type="text" class="entry-half" name="first_name" placeholder="名" value="<%= @user.first_name %>">
+        <input type="text" name="name" placeholder="お名前" value="<%= @user.name %>">
         <input type="text" name="email" placeholder="メールアドレス" value="<%= @user.email %>">
         <input type="password" name="password" placeholder="パスワード">
         <input type="password" name="password_confirm" placeholder="パスワードを再度入力">
