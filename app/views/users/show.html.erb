@@ -27,7 +27,7 @@
       <%= form_tag "/account/update_email" do %>
         <div class="update-area">
           <h2>メールアドレスを変更</h2>
-          <input type="text" name="email" value="<%= @current_user.email %>">
+          <input type="email" name="email" value="<%= @current_user.email %>">
           <button type="submit" class="green-button">メールアドレスを更新</button>
         </div>
       <% end %>

@@ -12,7 +12,7 @@
         <p>初めてご利用の方は、<%= link_to "アカウントを作成", "/signup" %>してください。</p>
       </div>
       <%= form_tag "/signin" do %>
-        <input type="text" name="email" placeholder="メールアドレス" value="<%= @email %>">
+        <input type="email" name="email" placeholder="メールアドレス" value="<%= @email %>">
         <input type="password" name="password" placeholder="パスワード" value="<%= @password %>">
         <button type="submit" class="green-button">サインイン</button>
       <% end %>

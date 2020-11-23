@@ -18,7 +18,7 @@
       </div>
       <%= form_tag "/signup" do %>
         <input type="text" name="name" placeholder="お名前" value="<%= @user.name %>">
-        <input type="text" name="email" placeholder="メールアドレス" value="<%= @user.email %>">
+        <input type="email" name="email" placeholder="メールアドレス" value="<%= @user.email %>">
         <input type="password" name="password" placeholder="パスワード">
         <input type="password" name="password_confirm" placeholder="パスワードを再度入力">
         <button type="submit" class="green-button">アカウントを作成</button>
