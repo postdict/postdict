@@ -10,7 +10,15 @@
   @mixin quiz_box($bg-color) {
     background: $bg-color;
     border: 2px solid darken($bg-color, 20%);
-    margin-right: 15px;
+    @include pc {
+      margin-right: 15px;
+    }
+    @include tablet {
+      margin-bottom: 20px;
+    }
+    @include mobile {
+      margin-bottom: 20px;
+    }
 
     // Display a kind of quiz; pre/post
     h2 {
@@ -109,8 +117,18 @@
 
       // Pre-quiz section
       .pre-contents-left {
-        float: left;
-        width: 70%;
+        @include pc {
+          float: left;
+          width: 70%;
+        }
+        @include tablet {
+          float: none;
+          width: 100%;
+        }
+        @include mobile {
+          float: none;
+          width: 100%;
+        }
         box-sizing: border-box;
 
         .quizzes-box {
@@ -120,8 +138,18 @@
 
       // word-network section
       .pre-contents-right {
-        float: left;
-        width: 30%;
+        @include pc {
+          float: left;
+          width: 30%;
+        }
+        @include tablet {
+          float: none;
+          width: 100%;
+        }
+        @include mobile {
+          float: none;
+          width: 100%;
+        }
         box-sizing: border-box;
 
         .word-network-box {
@@ -184,11 +212,15 @@
 
     // Noun table section
     .noun-table-section {
+      width: 100%;
+      overflow-x: scroll;
       clear: both;
       margin: 50px 0;
 
       .noun-table {
-        width: 100%;
+        @include mobile {
+          white-space: nowrap;
+        }
         border-collapse: collapse;
 
         tr {
@@ -222,6 +254,7 @@
         td {
           padding: 20px;
           border: 5px solid #fafafa;
+          white-space: normal;
 
           ul {
             padding-left: 16px;
@@ -281,6 +314,7 @@
           text-align: center;
           width: 100px;
           background: #f0f0f0;
+          white-space: nowrap;
         }
       }
     }
@@ -372,8 +406,13 @@
   }
 
   // Local selectors & overrides
+  .search-input {
+    width: 70%;
+    max-width: 500px;
+  }
+
   .action-input {
-    width: 80%;
+    width: 100%;
     max-width: 500px;
   }
 
