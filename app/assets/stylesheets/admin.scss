@@ -1,0 +1,65 @@
+// Place all the styles related to the Admins controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import "main";
+
+.admin {
+  // Local mixins
+
+  // Views
+  .top-view {
+  }
+
+  .index-view {
+    .list-section {
+      .user {
+        border-bottom: 2px solid #f0f0f0;
+        padding: 15px 30px;
+
+        p {
+          color: #656565;
+        }
+
+        .kind {
+          display: inline-block;
+          padding: 4px 8px;
+          border-radius: 6px;
+          font-size: 16px;
+          margin-left: 10px;
+        }
+
+        .admin {
+          background: #992121;
+          color: #fafafa;
+        }
+
+        .standard {
+          background: #e5f2f5;
+          color: #535353;
+        }
+
+        .actions {
+          margin-top: 30px;
+
+          .fa-mono {
+            color: #656565;
+            transition: 0.3s;
+
+            &:hover {
+              opacity: 0.7;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .destroy-form-view {
+  }
+
+  // Local selectors & overrides
+  input {
+    margin-bottom: 15px;
+  }
+}

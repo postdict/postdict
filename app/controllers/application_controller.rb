@@ -29,4 +29,10 @@ class ApplicationController < ActionController::Base
       redirect_to "/"
     end
   end
+
+  def is_current_user(user)
+    if user.user_id == @current_user.user_id
+      return true
+    end
+  end
 end
