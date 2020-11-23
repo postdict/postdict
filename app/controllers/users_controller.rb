@@ -69,7 +69,7 @@ class UsersController < ApplicationController
   end
 
   def update_password
-    if params[:new_password] == "" || params[:password_confirm] == ""
+    if params[:new_password].blank? || params[:password_confirm].blank?
       @error_message = "新しいパスワードを入力してください。"
       render "show"
       return

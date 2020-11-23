@@ -6,7 +6,7 @@ class HomeController < ApplicationController
 
   # @override
   def redirect_authorized
-    if @current_user != nil
+    if !@current_user.nil?
       redirect_to "/search"
     end
   end

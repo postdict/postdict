@@ -6,14 +6,14 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_authorized
-    if @current_user != nil
+    if !@current_user.nil?
       flash[:notice] = "すでにサインインしています。"
       redirect_to "/search"
     end
   end
 
   def redirect_unauthorized
-    if @current_user == nil
+    if @current_user.nil?
       flash[:alert] = "サインインが必要です。"
       redirect_to "/signin"
       return true
