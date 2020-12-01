@@ -1,14 +1,5 @@
 <%= content_for(:html_title) { "#{@user.name}に管理者権限を与える" } %>
-<% if @user.errors.full_messages.count > 0 %>
-  <div class="alert alert-alert">
-    <%= @user.errors.full_messages[0] %>
-  </div>
-<% end %>
-<% if @error_message %>
-  <div class="alert alert-alert">
-    <%= @error_message %>
-  </div>
-<% end %>
+<%= render "templates/flash" %>
 <div class="views admin">
   <div class="grant-form-view">
     <%= render "templates/header" %>

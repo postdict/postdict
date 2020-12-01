@@ -1,14 +1,5 @@
 <%= content_for(:html_title) { "アカウント設定" } %>
-<% if @current_user.errors.full_messages.count > 0 %>
-  <div class="alert alert-alert">
-    <%= @current_user.errors.full_messages[0] %>
-  </div>
-<% end %>
-<% if @error_message %>
-  <div class="alert alert-alert">
-    <%= @error_message %>
-  </div>
-<% end %>
+<%= render "templates/flash" %>
 <div class="views users">
   <div class="show-view">
     <%= render "templates/header" %>

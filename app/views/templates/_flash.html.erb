@@ -1,0 +1,10 @@
+<% if @current_user.errors.full_messages.count > 0 %>
+  <div class="alert alert-alert">
+    <%= @current_user.errors.full_messages[0] %>
+  </div>
+<% end %>
+<% if @error_message %>
+  <div class="alert alert-alert">
+    <%= @error_message %>
+  </div>
+<% end %>
