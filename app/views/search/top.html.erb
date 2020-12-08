@@ -14,5 +14,12 @@
         </div>
       </div>
     <% end %>
+    <% if @current_user.kind == "admin" %>
+      <div class="float-button" title="新しい単語を追加">
+        <%= link_to "/search/create" do %>
+          <span class="label fas fa-plus"></span>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
