@@ -309,6 +309,7 @@
         }
 
         .center-row {
+          padding: 20px;
           font-weight: bold;
           font-size: 20px;
           text-align: center;
@@ -326,6 +327,44 @@
 
       .quizzes-box {
         @include quiz_box(#f0f5fa);
+      }
+    }
+  }
+
+  .new-view {
+    .word-info {
+      @include pc {
+        float: left;
+        width: 70%;
+      }
+      @include tablet {
+        float: none;
+        width: 100%;
+      }
+      @include mobile {
+        float: none;
+        width: 100%;
+      }
+      box-sizing: border-box;
+      padding-right: 15px;
+      margin-bottom: 50px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+    }
+
+    .noun-table-section {
+      .noun-table {
+        td {
+          padding: 0;
+
+          textarea {
+            width: 100%;
+            min-width: 235px;
+            min-height: 70px;
+          }
+        }
       }
     }
   }

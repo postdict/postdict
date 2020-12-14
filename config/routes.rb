@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   get 'search' => "search#top"
   get 'search/search_results' => "search#index"
+  get 'search/new' => "search#new"
   get 'search/:noun' => "search#show"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

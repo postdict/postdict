@@ -30,5 +30,13 @@
         <%= "#{@query}に一致する単語が見つかりません。検索用語を変えてみてください。" %>
       <% end %>
     </div>
+
+    <% if @current_user.kind == "admin" %>
+      <div class="float-button" title="新しい単語を追加">
+        <%= link_to "/search/new" do %>
+          <span class="label fas fa-plus"></span>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>

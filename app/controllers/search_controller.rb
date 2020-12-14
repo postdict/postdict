@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
   before_action :redirect_unauthorized
+  before_action :redirect_nonadmin, { only: [ :new ] }
 
   def top
   end
@@ -12,6 +13,25 @@ class SearchController < ApplicationController
 
     @query = params[:word]
     @nouns = Noun.where(noun: @query)
+  end
+
+  def new
+    @noun = Noun.new()
+
+    noun_form_names = [
+      "__ V",
+      "__ BE",
+      "V __",
+      "BE __",
+      "P __",
+      "there BE __",
+      "名詞句のみ"
+    ]
+
+    @noun_rows = []
+    noun_form_names.each do |noun_form_name|
+      @noun_rows << @noun.noun_rows.new(noun_form_name: noun_form_name)
+    end
   end
 
   def show
