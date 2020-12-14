@@ -1,91 +1,15 @@
 <%= content_for(:html_title) { "新しい単語を追加" } %>
 <div class="views search">
   <%= render "templates/header" %>
-  <div class="result-view new-view">
+  <div class="new-view">
     <div class="pre-contents-section">
       <h1>新しい単語を追加</h1>
       <div class="word-info">
-        <h2>単語情報</h2>
-        <input type="text" placeholder="単語名を入力" value="<%= @noun.noun %>">
+        <%= form_tag "/search/new" do %>
+          <input type="text" name="word" placeholder="単語名を入力" value="<%= @noun.noun %>">
+          <p>次のページで、名詞形テーブルやクイズを編集できます。</p>
+          <button type="submit" class="green-button">次へ</button>
+        <% end %>
       </div>
-      <div class="pre-contents-left">
-        <div class="box quizzes-box">
-          <h2>プレクイズ</h2>
-        </div>
-      </div>
-
-      <div class="pre-contents-right">
-        <div class="box word-network-box">
-          <h4>Word Network</h4>
-
-          <div class="word-network-left">
-            <h5 class="derived-heading">派生</h5>
-          </div>
-          <div class="word-network-right">
-            <p><a href="#"><span class="kind">名</span>sell</a></p>
-            <p><a href="#"><span class="kind">名</span>sale</a></p>
-          </div>
-
-          <div class="word-network-left">
-            <h5 class="similar-heading">類語</h5>
-          </div>
-          <div class="word-network-right">
-            <p><a href="#"><span class="kind">名</span>sell</a></p>
-            <p><a href="#"><span class="kind">名</span>sale</a></p>
-          </div>
-
-          <div class="word-network-left">
-            <h5 class="reverse-heading">反意語</h5>
-          </div>
-          <div class="word-network-right">
-            <p><a href="#"><span class="kind">名</span>sell</a></p>
-            <p><a href="#"><span class="kind">名</span>sale</a></p>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="noun-table-section">
-      <table class="noun-table">
-        <thead>
-          <tr>
-            <th class="noun-left-head">
-              動詞的名詞<br>
-              <input type="text" placeholder="動詞的名詞用法のコアニュアンスを入力" value="<%= @noun.vn_meaning %>">
-            </th>
-            <th class="center-row"></th>
-            <th class="noun-right-head" colspan="3">
-              名詞的名詞<br>
-              <input type="text" placeholder="名詞的名詞用法のコアニュアンスを入力" value="<%= @noun.nn_meaning %>">
-            </th>
-          </tr>
-          <tr>
-            <td class="noun-type-left">[φ N]<br><input type="text" placeholder="この名詞形の説明を入力" value="<%= @noun.vn_explanation %>"></td>
-            <td class="noun-type-center"></td>
-            <td class="noun-type-right">[φ N]<br><input type="text" placeholder="この名詞形の説明を入力" value="<%= @noun.nn_none_explanation %>"></td>
-            <td class="noun-type-right">[a/the/one's N]<br><input type="text" placeholder="この名詞形の説明を入力" value="<%= @noun.nn_singular_explanation %>"></td>
-            <td class="noun-type-right">[φ/the/one's Ns]<br><input type="text" placeholder="この名詞形の説明を入力" value="<%= @noun.nn_plural_explanation %>"></td>
-          </tr>
-        </thead>
-        <tbody>
-          <% @noun_rows.each do |noun_row| %>
-            <tr>
-              <td><textarea placeholder="例文を入力"><%= noun_row.vn_cell %></textarea></td> <%# φ vNの列 %>
-              <td class="center-row"><%= noun_row.noun_form_name %></td>
-              <td><textarea placeholder="例文を入力"><%= noun_row.nn_none_cell %></textarea></td> <%# φ nNの列 %>
-              <td><textarea placeholder="例文を入力"><%= noun_row.nn_singular_cell %></textarea></td> <%# a/the/one's nNの列 %>
-              <td><textarea placeholder="例文を入力"><%= noun_row.nn_plural_cell %></textarea></td> <%# a/the/one's nNsの列 %>
-            </tr>
-          <% end %>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="post-contents-section">
-      <div class="box quizzes-box">
-        <h2>ポストクイズ</h2>
-      </div>
-    </div>
   </div>
 </div>

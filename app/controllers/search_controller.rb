@@ -2,6 +2,16 @@ class SearchController < ApplicationController
   before_action :redirect_unauthorized
   before_action :redirect_nonadmin, { only: [ :new ] }
 
+  @@noun_form_names = [
+    "__ V",
+    "__ BE",
+    "V __",
+    "BE __",
+    "P __",
+    "there BE __",
+    "名詞句のみ"
+  ]
+
   def top
   end
 
@@ -17,20 +27,47 @@ class SearchController < ApplicationController
 
   def new
     @noun = Noun.new()
+  end
 
-    noun_form_names = [
-      "__ V",
-      "__ BE",
-      "V __",
-      "BE __",
-      "P __",
-      "there BE __",
-      "名詞句のみ"
-    ]
+  def create
+    word = params[:word]
+
+    if word.blank?
+      redirect_to "/search/new"
+      return
+    end
+
+    if !(Noun.find_by(noun: word).nil?)
+      flash[:alert] = "すでに存在する単語です。別の単語を指定してください。"
+      redirect_to "/search/new"
+      return
+    end
+
+    @noun = Noun.new(noun: word)
+    @prequizzes = Quiz.new(original_noun: word, kind: "pre")
+    @postquizzes = Quiz.new(original_noun: word, kind: "post")
+
+    @noun.save
+    @prequizzes.save
+    @postquizzes.save
 
     @noun_rows = []
-    noun_form_names.each do |noun_form_name|
-      @noun_rows << @noun.noun_rows.new(noun_form_name: noun_form_name)
+    @@noun_form_names.each do |noun_form_name|
+      @noun_rows << @noun.noun_rows.create(noun_form_name: noun_form_name)
+    end
+
+    flash[:notice] = "単語を作成しました。"
+    redirect_to "/search/#{@noun.noun}/edit"
+  end
+
+  def edit
+    @noun = Noun.find_by(noun: params[:noun])
+    @prequizzes = Quiz.where(original_noun: params[:noun], kind: "pre")
+    @postquizzes = Quiz.where(original_noun: params[:noun], kind: "post")
+
+    @noun_rows = []
+    @@noun_form_names.each do |noun_form_name|
+      @noun_rows << @noun.noun_rows.find_by(noun_form_name: noun_form_name)
     end
   end
 
@@ -39,18 +76,8 @@ class SearchController < ApplicationController
     @prequizzes = Quiz.where(original_noun: params[:noun], kind: "pre")
     @postquizzes = Quiz.where(original_noun: params[:noun], kind: "post")
 
-    noun_form_names = [
-      "__ V",
-      "__ BE",
-      "V __",
-      "BE __",
-      "P __",
-      "there BE __",
-      "名詞句のみ"
-    ]
-
     @noun_rows = []
-    noun_form_names.each do |noun_form_name|
+    @@noun_form_names.each do |noun_form_name|
       @noun_rows << @noun.noun_rows.find_by(noun_form_name: noun_form_name)
     end
   end

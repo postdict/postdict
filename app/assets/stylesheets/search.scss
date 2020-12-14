@@ -332,6 +332,10 @@
   }
 
   .new-view {
+    margin: 20px;
+  }
+
+  .edit-view {
     .word-info {
       @include pc {
         float: left;
