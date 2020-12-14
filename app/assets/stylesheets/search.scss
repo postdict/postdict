@@ -504,15 +504,7 @@
     }
 
     &:hover {
-      @include pc {
-        bottom: 38px;
-      }
-      @include tablet {
-        bottom: 28px;
-      }
-      @include mobile {
-        bottom: 18px;
-      }
+      transform: translateY(-2px);
       box-shadow: none;
     }
 
@@ -524,5 +516,22 @@
       font-size: 28px;
       color: #fafafa;
     }
+  }
+
+  .float-alt-button {
+    @extend .float-button;
+    @include pc {
+      bottom: 120px;
+      right: 40px;
+    }
+    @include tablet {
+      bottom: 110px;
+      right: 30px;
+    }
+    @include mobile {
+      bottom: 100px;
+      right: 20px;
+    }
+    background: #aa1313;
   }
 }

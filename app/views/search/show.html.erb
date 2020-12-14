@@ -114,6 +114,11 @@
       </div>
     </div>
     <% if @current_user.kind == "admin" %>
+      <div class="float-alt-button" title="削除">
+        <%= link_to "/search/#{@noun.noun}/destroy", { method: "post", data: { confirm: "この単語情報を削除してもよろしいですか？" } } do %>
+          <span class="label fas fa-trash-alt"></span>
+        <% end %>
+      </div>
       <div class="float-button" title="編集">
         <%= link_to "/search/#{@noun.noun}/edit" do %>
           <span class="label fas fa-edit"></span>

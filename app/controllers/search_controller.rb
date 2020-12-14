@@ -43,13 +43,7 @@ class SearchController < ApplicationController
       return
     end
 
-    @noun = Noun.new(noun: word)
-    @prequizzes = Quiz.new(original_noun: word, kind: "pre")
-    @postquizzes = Quiz.new(original_noun: word, kind: "post")
-
-    @noun.save
-    @prequizzes.save
-    @postquizzes.save
+    @noun = Noun.create(noun: word)
 
     @noun_rows = []
     @@noun_form_names.each do |noun_form_name|
@@ -82,4 +76,15 @@ class SearchController < ApplicationController
     end
   end
 
+  def destroy
+    @noun = Noun.find_by(noun: params[:noun])
+    @quizzes = Quiz.where(original_noun: params[:noun])
+
+    flash[:notice] = "#{@noun.noun}の単語情報を削除しました。"
+
+    @noun.destroy
+    @quizzes.each { |quiz| quiz.destroy }
+
+    redirect_to "/search"
+  end
 end

@@ -28,5 +28,6 @@ Rails.application.routes.draw do
   post 'search/new' => "search#create"
   get 'search/:noun' => "search#show"
   get 'search/:noun/edit' => "search#edit"
+  post 'search/:noun/destroy' => "search#destroy"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
