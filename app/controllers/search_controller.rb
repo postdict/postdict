@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   before_action :redirect_unauthorized
-  before_action :redirect_nonadmin, { only: [ :new ] }
+  before_action :redirect_nonadmin, { only: [ :new, :create, :edit ] }
 
   @@noun_form_names = [
     "__ V",
