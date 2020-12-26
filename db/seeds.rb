@@ -5,3 +5,29 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+sale = Noun.create(noun: "sale", nn_meaning: "saleする/される", vn_meaning: "取引、sellする一連のプロセス、sellするイベント、売上")
+
+noun_form_names = [
+  "__ V",
+  "__ BE",
+  "V __",
+  "BE __",
+  "P __",
+  "there BE __",
+  "名詞句のみ"
+]
+
+noun_form_names.each do |noun_form_name|
+  sale.noun_rows.create(noun_form_name: noun_form_name)
+end
+
+row = NounRow.find_by(noun_form_name: "__ V")
+row.nn_plural_cell = "♦Sales increased 24 per cent.売り上げは24パーセント伸びた."
+row.save
+
+Quiz.create(original_noun: "sale", sentence_jp: "政府は象牙の販売を禁止した。", sentence_en: "The company accounted for 90 percent of ( pen sale ) in the U.S.", placeholder: "pen sale", answer: "pen sales", kind: "pre")
+Quiz.create(original_noun: "sale", sentence_jp: "その会社は米国の万年筆の売上の90%を占めた。", sentence_en: "The government imposed a ban on ( sale ) of ivory.", placeholder: "sale", answer: "the sale", kind: "pre")
+
+Quiz.create(original_noun: "sale", sentence_jp: "売り上げ減で会社は財政困難に陥った。", sentence_en: "The company was embarrassed by the decline in ( sale ).", placeholder: "sale", answer: "sales", kind: "post")
+Quiz.create(original_noun: "sale", sentence_jp: "シャロンはセールで安く選んだとてもすてきな家具をもっている。", sentence_en: "Sharon has some really nice furniture she picked up cheap in ( sale ).", placeholder: "sale", answer: "a [the] sale", kind: "post")
