@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   post 'account/update_email' => "users#update_email"
   get 'account/update_password' => "users#show"
   post 'account/update_password' => "users#update_password"
+  get 'account/destroy' => "users#destroy_form"
+  post 'account/destroy' => "users#destroy"
 
   get 'adminmng/top' => "admin#top"
   get 'adminmng/users/index' => "admin#index"

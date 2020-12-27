@@ -182,7 +182,7 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
       font-weight: normal;
     }
 
-    input {
+    > input {
       display: block;
     }
   }

@@ -34,6 +34,29 @@
           <button type="submit" class="green-button">パスワードを更新</button>
         </div>
       <% end %>
+      <div class="update-area">
+        <h2 id="destroy_form">アカウントを削除</h2>
+        <% if @current_user.kind == "admin" %>
+          <p>
+            管理者は、自分自身の削除はできません。ほかの管理者に依頼して、「ユーザー一覧」ページから削除してもらってください。
+          </p>
+        <% else %>
+          <p>
+            このアカウントに関するすべての情報がデーターベースから削除されます。このアカウントではログインできなくなり、再度アプリを利用するには新規登録が必要になります。
+          </p>
+          <div class="actions">
+            <%= form_tag "/account/destroy" do %>
+              <p>
+                <input type="checkbox" id="confirm-checkbox" name="confirm_checkbox" onclick="toggleButtonSensitivity('confirm_checkbox', 'remove_button')">
+                <label for="confirm-checkbox">確認のうえ、アカウントを削除します</label>
+              </p>
+              <p>
+                <button type="submit" name="remove_button" class="red-button" disabled="disabled">アカウントを削除</button>
+              </p>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
