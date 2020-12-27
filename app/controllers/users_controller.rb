@@ -92,6 +92,23 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy_form
+    redirect_to "/account#destroy_form"
+  end
+
+  def destroy
+    if @current_user.kind == "admin"
+      flash[:alert] = "管理者は、自分自身の削除はできません。ほかの管理者に依頼して、「ユーザー一覧」ページから削除してもらってください。"
+      redirect_to "/account"
+      return
+    end
+
+    @current_user.destroy
+    session[:user_id] = nil
+    flash[:notice] = "アカウントを削除しました。"
+    redirect_to "/"
+  end
+
   private
 
   def update_user_info_notify
