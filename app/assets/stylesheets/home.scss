@@ -94,16 +94,16 @@
 
         @include pc {
           float: left;
-          width: 640px;
+          width: 50%;
           padding: 50px 30px;
           margin: 30px 0;
         }
 
         @include tablet {
-          float: left;
-          width: 50%;
-          padding: 50px 30px;
-          margin: 30px 0;
+          float: none;
+          width: 100%;
+          padding: 30px;
+          margin: 15px 0;
         }
 
         @include mobile {
@@ -131,7 +131,7 @@
         }
 
         @include tablet {
-          border-right: 2px solid #ececec;
+          border-right: none;
         }
 
         @include mobile {
