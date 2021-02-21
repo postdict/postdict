@@ -26,6 +26,8 @@ noun_form_names = [
 # row.nn_plural_cell = "♦Sales increased 24 per cent.売り上げは24パーセント伸びた."
 # row.save
 
+sale.noun_rows.create(row_num: 1, column_num: 4, content: "♦Sales increased 24 per cent.")
+
 Quiz.create(original_noun: "sale", sentence_jp: "政府は象牙の販売を禁止した。", sentence_en: "The company accounted for 90 percent of ( pen sale ) in the U.S.", placeholder: "pen sale", answer: "pen sales", kind: "pre")
 Quiz.create(original_noun: "sale", sentence_jp: "その会社は米国の万年筆の売上の90%を占めた。", sentence_en: "The government imposed a ban on ( sale ) of ivory.", placeholder: "sale", answer: "the sale", kind: "pre")
 

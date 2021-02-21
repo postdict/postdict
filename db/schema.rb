@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_21_091557) do
+ActiveRecord::Schema.define(version: 2021_02_21_094441) do
 
   create_table "noun_rows", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "noun_id"
     t.integer "row_num"
-    t.string "column_num"
-    t.text "class"
+    t.text "content"
+    t.integer "column_num"
+    t.text "css_class"
   end
 
   create_table "nouns", force: :cascade do |t|

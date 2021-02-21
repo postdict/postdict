@@ -80,15 +80,15 @@
           </tr>
         </thead>
         <tbody>
-          <% @noun_rows.each do |noun_row| %>
-            <tr>
-              <td><%= noun_row.vn_cell %></td> <%# φ vNの列 %>
-              <td class="center-row"><%= noun_row.noun_form_name %></td>
-              <td><%= noun_row.nn_none_cell %></td> <%# φ nNの列 %>
-              <td><%= noun_row.nn_singular_cell %></td> <%# a/the/one's nNの列 %>
-              <td><%= noun_row.nn_plural_cell %></td> <%# a/the/one's nNsの列 %>
-            </tr>
-          <% end %>
+          <%# <% @noun_rows.each do |noun_row| %> %>
+            <%# <tr> %>
+              <%# <td><%= noun_row.vn_cell %></td> φ vNの列 %>
+              <%# <td class="center-row"><%= noun_row.noun_form_name</td> %> %>
+              <%# <td><%= noun_row.nn_none_cell %></td> φ nNの列 %>
+              <%# <td><%= noun_row.nn_singular_cell %></td> a/the/one's nNの列 %>
+              <%# <td><%= noun_row.nn_plural_cell %></td> a/the/one's nNsの列 %>
+            <%# </tr> %>
+          <%# <% end %> %>
           </tr>
         </tbody>
       </table>
