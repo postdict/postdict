@@ -18,13 +18,13 @@ noun_form_names = [
   "名詞句のみ"
 ]
 
-noun_form_names.each do |noun_form_name|
-  sale.noun_rows.create(noun_form_name: noun_form_name)
-end
+# noun_form_names.each do |noun_form_name|
+#   sale.noun_rows.create(noun_form_name: noun_form_name)
+# end
 
-row = NounRow.find_by(noun_form_name: "__ V")
-row.nn_plural_cell = "♦Sales increased 24 per cent.売り上げは24パーセント伸びた."
-row.save
+# row = NounRow.find_by(noun_form_name: "__ V")
+# row.nn_plural_cell = "♦Sales increased 24 per cent.売り上げは24パーセント伸びた."
+# row.save
 
 Quiz.create(original_noun: "sale", sentence_jp: "政府は象牙の販売を禁止した。", sentence_en: "The company accounted for 90 percent of ( pen sale ) in the U.S.", placeholder: "pen sale", answer: "pen sales", kind: "pre")
 Quiz.create(original_noun: "sale", sentence_jp: "その会社は米国の万年筆の売上の90%を占めた。", sentence_en: "The government imposed a ban on ( sale ) of ivory.", placeholder: "sale", answer: "the sale", kind: "pre")
