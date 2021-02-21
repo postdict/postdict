@@ -80,16 +80,39 @@
           </tr>
         </thead>
         <tbody>
-          <%# <% @noun_rows.each do |noun_row| %> %>
-            <%# <tr> %>
-              <%# <td><%= noun_row.vn_cell %></td> φ vNの列 %>
-              <%# <td class="center-row"><%= noun_row.noun_form_name</td> %> %>
-              <%# <td><%= noun_row.nn_none_cell %></td> φ nNの列 %>
-              <%# <td><%= noun_row.nn_singular_cell %></td> a/the/one's nNの列 %>
-              <%# <td><%= noun_row.nn_plural_cell %></td> a/the/one's nNsの列 %>
-            <%# </tr> %>
-          <%# <% end %> %>
-          </tr>
+          <% for i in 0..6 %>
+            <tr>
+              <td>
+                <% if @noun_rows[i][0] != nil %>
+                  <% @noun_rows[i][0].each do |item| %>
+                    <span class="<%= item.css_class %>"><%= item.content %></span>
+                  <% end %>
+                <% end %>
+              </td>
+              <td class="center-row"><%= @noun_form_names[i] %></td>
+              <td>
+                <% if @noun_rows[i][1] != nil %>
+                  <% @noun_rows[i][1].each do |item| %>
+                    <span class="<%= item.css_class %>"><%= item.content %></span>
+                  <% end %>
+                <% end %>
+              </td>
+              <td>
+                <% if @noun_rows[i][2] != nil %>
+                  <% @noun_rows[i][2].each do |item| %>
+                    <span class="<%= item.css_class %>"><%= item.content %></span>
+                  <% end %>
+                <% end %>
+              </td>
+              <td>
+                <% if @noun_rows[i][3] != nil %>
+                  <% @noun_rows[i][3].each do |item| %>
+                    <span class="<%= item.css_class %>"><%= item.content %></span>
+                  <% end %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
