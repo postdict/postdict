@@ -39,11 +39,11 @@ class SearchController < ApplicationController
     end
 
     for i in 0..6
-        for j in 0..3
-          if(@noun.noun_rows.where(row_num: i, column_num: j).present?)
-            @noun_rows[i][j] = @noun.noun_rows.where(row_num: i, column_num: j)
-          end
+      for j in 0..3
+        if @noun.noun_rows.where(row_num: i, column_num: j).present?
+          @noun_rows[i][j] = @noun.noun_rows.where(row_num: i, column_num: j)
         end
+      end
     end
   end
 
