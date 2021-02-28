@@ -29,10 +29,6 @@ class SearchController < ApplicationController
       "名詞句のみ"
     ]
 
-    # @noun_rows = []
-    # noun_form_names.each do |noun_form_name|
-    #   @noun_rows << @noun.noun_rows.find_by(noun_form_name: noun_form_name)
-    # end
     @noun_rows = Array.new(7)
     for k in 0..6
       @noun_rows[k] = Array.new(4)
